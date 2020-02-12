@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+/*@import '../node_modules/bootstrap/dist/css/bootstrap.css';*/
+@import "assets/style.css";
+@import "assets/css/bootstrap.min.css";
+@import "assets/css/font-awesome.css";
+@import "assets/css/material-design-iconic-font.min.css";
+@import "assets/css/owl.carousel.min.css";
+@import "assets/css/owl.theme.default.min.css";
+@import "assets/css/core.css";
+@import "assets/css/responsive.css";
+@import "assets/css/custom.css";
+

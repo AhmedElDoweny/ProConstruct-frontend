@@ -33,7 +33,7 @@
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "font-awesome": "^4.7.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^1.9.1",
+    "jquery": "^3.4.0",
     "ngx-slick-carousel": "^0.4.7",
     "rxjs": "~6.4.0",
     "slick-carousel": "^1.8.1",

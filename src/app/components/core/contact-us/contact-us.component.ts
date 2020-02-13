@@ -28,7 +28,7 @@ export class ContactUsComponent implements AfterViewInit {
     position: this.coordinates,
     map: this.map,
     title: 'Construction!',
-    icon: 'assets/images/icons/gMarker.png',
+    icon: 'assets/images/icons/gMarkergit gg.png',
     animation: google.maps.Animation.BOUNCE
   });
 

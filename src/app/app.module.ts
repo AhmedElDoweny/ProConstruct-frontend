@@ -14,6 +14,10 @@ import { CartComponent } from './components/features/cart/cart.component';
 import { CompletedComponent } from './components/features/cart/completed/completed.component';
 import { PendingComponent } from './components/features/cart/pending/pending.component';
 import { RejectedComponent } from './components/features/cart/rejected/rejected.component';
+import { FooterComponent } from './components/core/footer/footer.component';
+import { FooterUpperComponent } from './components/core/footer/footer-upper/footer-upper.component';
+import { FooterMiddelComponent } from './components/core/footer/footer-middel/footer-middel.component';
+import { FooterLowerComponent } from './components/core/footer/footer-lower/footer-lower.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { RejectedComponent } from './components/features/cart/rejected/rejected.
     CompletedComponent,
     PendingComponent,
     RejectedComponent
+    FooterComponent,
+    FooterUpperComponent,
+    FooterMiddelComponent,
+    FooterLowerComponent
   ],
   imports: [
     BrowserModule,

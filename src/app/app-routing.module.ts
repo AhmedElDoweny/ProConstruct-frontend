@@ -11,8 +11,7 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'cart/:_id', component: CartComponent},
-
-  // Put ur routes below above |⬆|
+  // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];

@@ -8,12 +8,18 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { LoginRegisterComponent } from './components/auth/login-register/login-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    RegisterComponent,
+    LoginComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,

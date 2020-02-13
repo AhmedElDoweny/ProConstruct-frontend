@@ -29,7 +29,7 @@ import { FooterLowerComponent } from './components/core/footer/footer-lower/foot
     CartComponent,
     CompletedComponent,
     PendingComponent,
-    RejectedComponent
+    RejectedComponent,
     FooterComponent,
     FooterUpperComponent,
     FooterMiddelComponent,

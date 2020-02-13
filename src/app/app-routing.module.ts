@@ -3,9 +3,12 @@ import {Routes, RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
+import {AboutUsComponent} from './components/core/about-us/about-us.component';
+import {ContactUsComponent} from './components/core/contact-us/contact-us.component';
 
 const routes: Routes = [
-
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'contact-us', component: ContactUsComponent},
   // Put ur routes below above |⬆|
   {path: '', component: HomeComponent},
   {path: '**', component: ErrorComponent}

@@ -1,4 +1,7 @@
 import {Component, ElementRef, AfterViewInit, ViewChild, OnInit} from '@angular/core';
+import {SettingService} from '../../../_service/setting.service';
+import {NgFlashMessageService} from 'ng-flash-messages';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 /// <reference types="@types/googlemaps" />
 declare const google: any;
 
@@ -7,7 +10,7 @@ declare const google: any;
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent implements AfterViewInit {
+export class ContactUsComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer', {static: true}) gmap: ElementRef;
   // map: google.maps.Map;
   map: any;
@@ -32,199 +35,75 @@ export class ContactUsComponent implements AfterViewInit {
     animation: google.maps.Animation.BOUNCE
   });
 
-  constructor() {
+  contactEmail: string;
+  contactForm: FormGroup;
+  lastMessageId: number;
+
+  constructor(
+    private settingService: SettingService,
+    private fb: FormBuilder,
+    private ngFlashMessageService: NgFlashMessageService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.settingService.getAnyField('contactEmail').subscribe(data => {
+      this.contactEmail = data.contactEmail;
+    });
+
+    this.contactForm = this.fb.group({
+      name: [''],
+      email: ['', [Validators.required, Validators.email]],
+      subject: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+
+    this.settingService.getAnyField('contactUsMessages').subscribe(data => {
+      this.lastMessageId = data.contactUsMessages[data.contactUsMessages.length - 1].id + 1;
+    });
+
   }
 
   ngAfterViewInit() {
     this.mapInitializer();
   }
 
-
   mapInitializer() {
     this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
     this.marker.setMap(this.map);
   }
 
-  // getPosition() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(position => {
-  //       this.lng = position.coords.longitude;
-  //       this.lat = position.coords.latitude;
-  //       console.log('Plng: ', position.coords.longitude, 'Plat: ', position.coords.latitude);
-  //     });
-  //   }
-  // }
+  sendMessage() {
+    if (this.contactForm.controls.email.valid
+      && this.contactForm.controls.email.valid
+      && this.contactForm.controls.subject.valid
+      && this.contactForm.controls.message.valid) {
+      const message = {
+        id: this.lastMessageId,
+        name: this.contactForm.controls.name.value,
+        email: this.contactForm.controls.email.value,
+        subject: this.contactForm.controls.subject.value,
+        message: this.contactForm.controls.message.value
+      };
 
-  // How you would like to style the map.
-  // This is where you would paste any style found on Snazzy Maps.
-  //   styles:
-  //     [
-  //       {
-  //         featureType: 'all',
-  //         elementType: 'labels.text.fill',
-  //         stylers: [
-  //           {
-  //             saturation: 36
-  //           },
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 40
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'all',
-  //         elementType: 'labels.text.stroke',
-  //         stylers: [
-  //           {
-  //             visibility: 'on'
-  //           },
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 16
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'all',
-  //         elementType: 'labels.icon',
-  //         stylers: [
-  //           {
-  //             visibility: 'off'
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'administrative',
-  //         elementType: 'geometry.fill',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 20
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'administrative',
-  //         elementType: 'geometry.stroke',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 17
-  //           },
-  //           {
-  //             weight: 1.2
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'landscape',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 20
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'poi',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 21
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'road.highway',
-  //         elementType: 'geometry.fill',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 17
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'road.highway',
-  //         elementType: 'geometry.stroke',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 29
-  //           },
-  //           {
-  //             weight: 0.2
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'road.arterial',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 18
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'road.local',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 16
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'transit',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 19
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         featureType: 'water',
-  //         elementType: 'geometry',
-  //         stylers: [
-  //           {
-  //             color: '#000000'
-  //           },
-  //           {
-  //             lightness: 17
-  //           }
-  //         ]
-  //       }
-  //     ]
-  // };
+      this.settingService.addContactUsMessages(message).subscribe(data => {
+        console.log(data);
+        this.lastMessageId++;
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ['Your message has been send...'],
+          type: 'success'
+        });
+        this.contactForm.controls.name.setValue('');
+        this.contactForm.controls.email.setValue('');
+        this.contactForm.controls.subject.setValue('');
+        this.contactForm.controls.message.setValue('');
+      });
+    } else {
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ['Something wrong...', 'email, subject and message are required fields'],
+        type: 'danger'
+      });
+    }
+  }
 
 }

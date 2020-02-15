@@ -7,7 +7,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./rejected.component.css']
 })
 export class RejectedComponent implements OnInit {
-  @Input()rejectedProducts
+  @Input()rejectedProducts;
 
   constructor() { }
 

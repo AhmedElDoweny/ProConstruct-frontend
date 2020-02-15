@@ -28,8 +28,8 @@
                 <i class="fa fa-phone"></i>
               </div>
               <div class="ct__details">
-                <p><a href="#">(001) 24568 365 987)</a></p>
-                <p><a href="#">(001) 65897 569 784)</a></p>
+                <p><a>(001) 24568 365 987)</a></p>
+                <p><a>(001) 65897 569 784)</a></p>
               </div>
             </div>
             <!-- End Single Address -->
@@ -39,8 +39,8 @@
                 <i class="fa fa-globe"></i>
               </div>
               <div class="ct__details">
-                <p><a href="#">infor@simplyconstruction.com</a></p>
-                <p><a href="#">www.simplyconstruction.com</a></p>
+                <p><a>{{contactEmail}}</a></p>
+                <p><a>www.proconstruct.com</a></p>
               </div>
             </div>
             <!-- End Single Address -->
@@ -62,36 +62,34 @@
           <div class="htc__contact__form__wrap">
             <h2 class="title__line--5">SEND US A MESSAGE</h2>
             <div class="contact-form-wrap">
-              <form id="contact-form" action="#" method="post">
+              <ng-flash-message></ng-flash-message>
+              <form id="contact-form" [formGroup]="contactForm">
                 <div class="single-contact-inner">
                   <div class="single-contact-form">
                     <div class="contact-box name">
                       <span>Your Name*</span>
-                      <input type="text" name="name">
+                      <input type="text" name="name" formControlName="name">
                     </div>
                     <div class="contact-box email">
                       <span>Your Email*</span>
-                      <input type="email" name="email">
+                      <input type="email" name="email" formControlName="email">
                     </div>
                     <div class="contact-box subject">
                       <span>Subject*</span>
-                      <input type="text" name="subject">
+                      <input type="text" name="subject" formControlName="subject">
                     </div>
                   </div>
                   <div class="single-contact-form">
                     <div class="contact-box message">
                       <span>Message*</span>
-                      <textarea name="message"></textarea>
+                      <textarea name="message" formControlName="message"></textarea>
                     </div>
                     <div class="contact-btn">
-                      <button type="submit" class="htc__btn btn--theme">SEND NOW</button>
+                      <input class="htc__btn btn--theme" type="button" (click)="sendMessage()" value="SEND NOW">
                     </div>
                   </div>
                 </div>
               </form>
-            </div>
-            <div class="form-output">
-              <p class="form-messege"></p>
             </div>
           </div>
         </div>

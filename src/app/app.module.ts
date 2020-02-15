@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
@@ -43,6 +44,7 @@ import { NotificationComponent } from './components/features/notification/notifi
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    NgFlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

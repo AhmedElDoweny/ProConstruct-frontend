@@ -7,14 +7,24 @@ import {LoginRegisterComponent} from './components/auth/login-register/login-reg
 import {ProfileComponent} from './components/profile/profile.component'
 import {AuthGuard} from './auth/auth.guard'
 import { from } from 'rxjs';
+import {AboutUsComponent} from './components/core/about-us/about-us.component';
+import {ContactUsComponent} from './components/core/contact-us/contact-us.component';
+import {PostListComponent} from './components/features/post/post-list/post-list.component';
+import {PostDetailsComponent} from './components/features/post/post-details/post-details.component';
+import {CartComponent} from './components/features/cart/cart.component';
+import {NotificationComponent} from './components/features/notification/notification.component';
 
 const routes: Routes = [
-
-  // Put ur routes below above |⬆|
-  {path: '', component: HomeComponent},
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'posts', component: PostListComponent},
+  {path: 'contact-us', component: ContactUsComponent},
+  {path: 'cart/:_id', component: CartComponent},
+  {path: 'notification', component: NotificationComponent},
   {path: 'login', component: LoginRegisterComponent},
   {path: 'register', component: LoginRegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  // Put ur routes above |⬆|
+  {path: '', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];
 

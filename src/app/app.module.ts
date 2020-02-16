@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import { RegisterComponent } from './components/auth/register/register.component';
@@ -41,7 +41,7 @@ import { NotificationComponent } from './components/features/notification/notifi
     RegisterComponent,
     LoginComponent,
     LoginRegisterComponent,
-    ProfileComponent
+    ProfileComponent,
     AboutUsComponent,
     ContactUsComponent,
     HeaderComponent,
@@ -49,7 +49,7 @@ import { NotificationComponent } from './components/features/notification/notifi
     MiddleHeaderComponent,
     LowerHeaderComponent,
     PostListComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
     CartComponent,
     CompletedComponent,
     PendingComponent,

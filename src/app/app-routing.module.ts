@@ -17,6 +17,7 @@ import {NotificationComponent} from './components/features/notification/notifica
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'posts', component: PostListComponent},
+  {path: 'posts/:id', component: PostDetailsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'cart/:_id', component: CartComponent},
   {path: 'notification', component: NotificationComponent},

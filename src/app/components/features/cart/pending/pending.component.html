@@ -1,0 +1,22 @@
+   
+<div class="list-group" *ngFor="let item of pendingproducts">
+    <div class="media col-md-3">
+        <figure class="pull-left">
+            <img class="media-object img-rounded img-responsive"  [src]="item.image" [alt]="item.title" >
+        </figure>
+    </div>
+    <div class="col-md-4" >
+        <h2 class="list-group-item-heading">{{item.title}}</h2>
+        <p class="list-group-item-text"> {{item.description}}
+        </p>
+    </div>
+    <div class="col-md-2">
+        <h2>Status</h2>
+        <p class="h3"><b>Pending</b></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Price</h2>
+        <p class="h3"><b>{{item.price|currency}}</b></p>
+    </div>
+    <hr>
+   

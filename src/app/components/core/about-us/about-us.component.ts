@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SettingService} from '../../../_service/setting.service';
 
 @Component({
   selector: 'app-about-us',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
+  private aboutApp: string;
 
-  constructor() { }
+  constructor(private settingService: SettingService) {
+  }
 
   ngOnInit() {
+    this.settingService.getAnyField('aboutApp').subscribe(data => {
+      this.aboutApp = data.aboutApp;
+    });
   }
 
 }

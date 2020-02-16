@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
@@ -16,6 +17,15 @@ import { MiddleHeaderComponent } from './components/core/header/middle-header/mi
 import { LowerHeaderComponent } from './components/core/header/lower-header/lower-header.component';
 import { PostListComponent } from './components/features/post/post-list/post-list.component';
 import { PostDetailsComponent } from './components/features/post/post-details/post-details.component';
+import { CartComponent } from './components/features/cart/cart.component';
+import { CompletedComponent } from './components/features/cart/completed/completed.component';
+import { PendingComponent } from './components/features/cart/pending/pending.component';
+import { RejectedComponent } from './components/features/cart/rejected/rejected.component';
+import { FooterComponent } from './components/core/footer/footer.component';
+import { FooterUpperComponent } from './components/core/footer/footer-upper/footer-upper.component';
+import { FooterMiddelComponent } from './components/core/footer/footer-middel/footer-middel.component';
+import { FooterLowerComponent } from './components/core/footer/footer-lower/footer-lower.component';
+import { NotificationComponent } from './components/features/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +40,15 @@ import { PostDetailsComponent } from './components/features/post/post-details/po
     LowerHeaderComponent,
     PostListComponent,
     PostDetailsComponent
+    CartComponent,
+    CompletedComponent,
+    PendingComponent,
+    RejectedComponent,
+    FooterComponent,
+    FooterUpperComponent,
+    FooterMiddelComponent,
+    FooterLowerComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +56,7 @@ import { PostDetailsComponent } from './components/features/post/post-details/po
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    NgFlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

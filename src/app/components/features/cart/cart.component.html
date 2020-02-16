@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 col-sm-6 col-xs-7">
+            <div class="logo">
+                    <img src="../../../../assets/images//logo/sinply-construction.png" alt="logo image">
+            </div>
+        </div>
+		<div class="well">
+            <h1 class="text-center">All Orders</h1>
+            <hr>
+        <div class="container main">
+            <div class="row">
+               <div class="col-md-8 col-sm-6 col-8 ">
+                    <nav class="main__menu__nav  ">
+                        <ul class="main__menu">
+                            <li class="col-4 btn"><a  (click)="showrcompleted()">completed</a></li>
+                            <li class="col-4 btn"><a (click)="showrpending()">pending</a></li>
+                            <li class="col-4 btn"><a (click)="showrejected()">rejected</a></li>
+                        </ul>
+                        <hr>
+                    </nav>
+                </div>  
+            </div>
+            <div>
+                <div *ngIf="completedFlag">
+                    <app-completed [completedproducts]="newcart.completed"></app-completed>
+                </div>
+                <div *ngIf="pendingFlag">
+                    <app-pending  [pendingproducts]="newcart.pending"></app-pending>
+                </div>
+                <div *ngIf="rejectedFlag">
+                    <app-rejected [rejectedProducts]="newcart.rejected"></app-rejected>
+                </div>
+            </div>
+           
+        </div>
+      
+	</div>
+</div>

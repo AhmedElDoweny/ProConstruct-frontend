@@ -31,8 +31,6 @@
               "src/assets/js/vendor/jquery-1.12.0.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/plugins.js",
-              "node_modules/slick-carousel/slick/slick.min.js",
-              "node_modules/slick-carousel/slick/slick.min.js",
               "src/assets/js/owl.carousel.min.js",
               "src/assets/js/waypoints.min.js",
               "src/assets/js/main.js"

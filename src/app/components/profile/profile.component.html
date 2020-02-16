@@ -1,0 +1,74 @@
+<!-- <table *ngIf="client" class="table-fill">
+    <thead>
+        <tr>
+            <th colspan="2" class="text-center">User Profile</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td class="form-control">{{client.name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td class="form-control">{{client.email}}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td class="form-control">{{client.phone}}</td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="text-center">
+                <input type="button" (click)="onLogout()" value="Logout" />
+            </td>
+        </tr>
+    </tbody>
+  </table>  -->
+  
+   <div class="container text-center">
+    <div class="row mt-4">
+        <div class="col-12 col-lg-4 rounded " style="border: 1px solid #fcc236;">
+            <img class="rounded-circle border center-block img-responsive" src="../../../assets/images/team/1.jpg" alt="">
+            <div class="team"><h4>{{client.name}}</h4></div>
+        </div>
+        <div class="col-12 col-lg-7 ml-2 p-3 rounded" style="border: 1px solid #fcc236;"> 
+            <!-- <div class="row text-center">
+                <div class="col-6">
+                    <h6>First Name</h6>
+                    <div class="form-control">Moaz</div>
+                </div>
+                <div class="col-6">
+                    <h6>Last Name</h6>
+                    <div class="form-control">Gamal</div>
+                </div>  
+            </div>
+                <hr>  -->
+            <div class="row text-center">
+                <div class="col-6">
+                    <h6>Email</h6>
+                    <div class="form-control">{{client.email}}</div>
+                </div>
+                <div class="col-6">
+                    <h6>Phone</h6>
+                    <div class="form-control">{{client.phone}}</div>
+                </div>  
+            </div>
+            <hr>
+            <div class="row text-center">
+                <div class="col-6">
+                    <h6>location</h6>
+                    <div class="form-control">Cairo</div>
+                </div>
+                <div class="col-6">
+                    <h6>Phone</h6>
+                    <div class="form-control">01011456677</div>
+                </div>  
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4 offset-4"><button class="butt">EDIT</button></div>
+            </div>
+        </div>
+    </div>
+</div>

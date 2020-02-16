@@ -2232,7 +2232,7 @@ blockquote {
   padding-left: 5px;
 }
 
-.htc__login__btn a {
+.htc__login__btn input {
   border: 1px solid #d5d5d5;
   display: inline-block;
   font-size: 20px;
@@ -2299,7 +2299,7 @@ blockquote {
   font-size: 16px !important;
 }
 
-.htc__login__btn a:hover {
+.htc__login__btn input:hover {
   background: #fcc236;
   color: #fff;
   border: 1px solid #fcc236;

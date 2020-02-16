@@ -1,12 +1,18 @@
+import { ClientService } from 'src/app/_service/client.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { LoginRegisterComponent } from './components/auth/login-register/login-register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
 import { AboutUsComponent } from './components/core/about-us/about-us.component';
@@ -32,6 +38,10 @@ import { NotificationComponent } from './components/features/notification/notifi
     AppComponent,
     HomeComponent,
     ErrorComponent,
+    RegisterComponent,
+    LoginComponent,
+    LoginRegisterComponent,
+    ProfileComponent
     AboutUsComponent,
     ContactUsComponent,
     HeaderComponent,
@@ -58,7 +68,14 @@ import { NotificationComponent } from './components/features/notification/notifi
     AppRoutingModule,
     NgFlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    ClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

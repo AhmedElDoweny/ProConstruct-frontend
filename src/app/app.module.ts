@@ -11,6 +11,12 @@ import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
 import { AboutUsComponent } from './components/core/about-us/about-us.component';
 import { ContactUsComponent } from './components/core/contact-us/contact-us.component';
+import { HeaderComponent } from './components/core/header/header/header.component';
+import { UpperHeaderComponent } from './components/core/header/upper-header/upper-header.component';
+import { MiddleHeaderComponent } from './components/core/header/middle-header/middle-header.component';
+import { LowerHeaderComponent } from './components/core/header/lower-header/lower-header.component';
+import { PostListComponent } from './components/features/post/post-list/post-list.component';
+import { PostDetailsComponent } from './components/features/post/post-details/post-details.component';
 import { CartComponent } from './components/features/cart/cart.component';
 import { CompletedComponent } from './components/features/cart/completed/completed.component';
 import { PendingComponent } from './components/features/cart/pending/pending.component';
@@ -28,6 +34,12 @@ import { NotificationComponent } from './components/features/notification/notifi
     ErrorComponent,
     AboutUsComponent,
     ContactUsComponent,
+    HeaderComponent,
+    UpperHeaderComponent,
+    MiddleHeaderComponent,
+    LowerHeaderComponent,
+    PostListComponent,
+    PostDetailsComponent
     CartComponent,
     CompletedComponent,
     PendingComponent,

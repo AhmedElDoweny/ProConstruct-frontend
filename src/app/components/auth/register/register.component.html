@@ -2,7 +2,8 @@
         <form class="login" [formGroup]="register" (ngSubmit) ="onSave()">
             <input type="text" placeholder="User Name*" formControlName="name">
             <input type="password" placeholder="Password*" formControlName="password">
-            <input type="email" placeholder="Email*" formControlName="email">
+            <input  [class.is-invalid] = "register.get('email').invalid && register.get('email').touched"
+            type="email" placeholder="Email*" formControlName="email">
             <input type="text" placeholder="Phone*" formControlName="phone">
             <div class="form-group">
                 <label for="">role</label>
@@ -15,6 +16,7 @@
                 <span class="forget"><a href="#">Forget Pasword?</a></span>
             </div>
 
-            
-            <input type="submit" class="regbtn" value="submit">
+            <div class="htc__login__btn mt--30">
+                <input type="submit" value="submit">
+            </div>
         </form>

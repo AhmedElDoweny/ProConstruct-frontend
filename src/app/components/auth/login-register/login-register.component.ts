@@ -21,6 +21,7 @@ export class LoginRegisterComponent implements OnInit {
 
   ngOnInit() {
     this.toggle();
+    
   }
 
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UpperHeaderComponent } from './upper-header.component';
+import {UpperHeaderComponent} from './upper-header.component';
 
 describe('UpperHeaderComponent', () => {
   let component: UpperHeaderComponent;
@@ -8,9 +8,9 @@ describe('UpperHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpperHeaderComponent ]
+      declarations: [UpperHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { Setting } from './setting';
+import {Setting} from './setting';
 
 describe('Setting', () => {
   it('should create an instance', () => {

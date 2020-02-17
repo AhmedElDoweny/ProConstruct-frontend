@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CartServiceService } from 'src/app/_service/cart.service';
-import { ActivatedRoute } from '@angular/router';
-import { Cart } from 'src/app/_models/cart';
+import {Component, OnInit} from '@angular/core';
+import {CartServiceService} from 'src/app/_service/cart.service';
+import {ActivatedRoute} from '@angular/router';
+import {Cart} from 'src/app/_models/cart';
 
 
 @Component({
@@ -13,36 +13,41 @@ export class CartComponent implements OnInit {
   completedFlag = false;
   rejectedFlag = false;
   pendingFlag = true;
-  showrejected(){
-    this.rejectedFlag=true;
-    this.pendingFlag=false;
-    this.completedFlag=false;
-  }
-  showrcompleted(){
-    this.rejectedFlag=false;
-    this.pendingFlag=false;
-    this.completedFlag=true;
-  }
-  showrpending(){
-    this.rejectedFlag=false;
-    this.pendingFlag=true;
-    this.completedFlag=false;
+
+  showrejected() {
+    this.rejectedFlag = true;
+    this.pendingFlag = false;
+    this.completedFlag = false;
   }
 
-  constructor(private cartservice:CartServiceService,private arote:ActivatedRoute) { }
-  newcart:Cart;
-  carts:Cart[];
+  showrcompleted() {
+    this.rejectedFlag = false;
+    this.pendingFlag = false;
+    this.completedFlag = true;
+  }
+
+  showrpending() {
+    this.rejectedFlag = false;
+    this.pendingFlag = true;
+    this.completedFlag = false;
+  }
+
+  constructor(private cartservice: CartServiceService, private arote: ActivatedRoute) {
+  }
+
+  newcart: Cart;
+  carts: Cart[];
 
 
   ngOnInit() {
-    this.arote.params.subscribe(a=>{
-      console.log("a",a._id);
-      this.cartservice.getCart(a._id).subscribe(c=>{
-        this.newcart=c;
-        console.log("c",c);
+    this.arote.params.subscribe(a => {
+      console.log('a', a._id);
+      this.cartservice.getCart(a._id).subscribe(c => {
+        this.newcart = c;
+        console.log('c', c);
 
       });
-    })
+    });
   }
 
 }

@@ -1,22 +1,21 @@
+<form class="login" [formGroup]="register" (ngSubmit)="onSave()">
+  <input type="text" placeholder="User Name*" formControlName="name">
+  <input type="password" placeholder="Password*" formControlName="password">
+  <input [class.is-invalid]="register.get('email').invalid && register.get('email').touched"
+         type="email" placeholder="Email*" formControlName="email">
+  <input type="text" placeholder="Phone*" formControlName="phone">
+  <div class="form-group">
+    <label for="">role</label>
+    <select formControlName="role">
+      <option value="Engineer">Engineer</option>
+      <option value="sProvider">service provider</option>
+    </select>
+  </div>
+  <div class="tabs__checkbox">
+    <span class="forget"><a href="#">Forget Pasword?</a></span>
+  </div>
 
-        <form class="login" [formGroup]="register" (ngSubmit) ="onSave()">
-            <input type="text" placeholder="User Name*" formControlName="name">
-            <input type="password" placeholder="Password*" formControlName="password">
-            <input  [class.is-invalid] = "register.get('email').invalid && register.get('email').touched"
-            type="email" placeholder="Email*" formControlName="email">
-            <input type="text" placeholder="Phone*" formControlName="phone">
-            <div class="form-group">
-                <label for="">role</label>
-                <select formControlName="role">
-                    <option value="Engineer">Engineer</option>
-                    <option value="sProvider">service provider</option>
-                </select>
-            </div>
-            <div class="tabs__checkbox">
-                <span class="forget"><a href="#">Forget Pasword?</a></span>
-            </div>
-
-            <div class="htc__login__btn mt--30">
-                <input type="submit" value="submit">
-            </div>
-        </form>
+  <div class="htc__login__btn mt--30">
+    <input type="submit" value="submit">
+  </div>
+</form>

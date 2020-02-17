@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
@@ -7,21 +7,22 @@ import { Router } from '@angular/router'
   styleUrls: ['./login-register.component.css']
 })
 export class LoginRegisterComponent implements OnInit {
-  flag = true
-  toggle(){
-    if(this.router.url == '/register' ){
-      this.flag = false
-    }
-    else if(this.router.url =='/login'){
-      this.flag = true
+  flag = true;
+
+  toggle() {
+    if (this.router.url == '/register') {
+      this.flag = false;
+    } else if (this.router.url == '/login') {
+      this.flag = true;
     }
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.toggle();
-    
+
   }
 
 }

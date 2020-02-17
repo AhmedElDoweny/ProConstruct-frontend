@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Input} from '@angular/core';
 
 @Component({
   selector: 'app-pending',
@@ -7,8 +7,10 @@ import { Input } from '@angular/core';
   styleUrls: ['./pending.component.css']
 })
 export class PendingComponent implements OnInit {
-  @Input()pendingproducts
-  constructor() { }
+  @Input() pendingproducts;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

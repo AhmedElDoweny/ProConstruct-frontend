@@ -1,6 +1,6 @@
-import { NotificationService } from './../../../_service/notification.service';
-import { Component, OnInit } from '@angular/core';
-import { Notification } from 'src/app/_models/notification';
+import {NotificationService} from './../../../_service/notification.service';
+import {Component, OnInit} from '@angular/core';
+import {Notification} from 'src/app/_models/notification';
 
 @Component({
   selector: 'app-notification',
@@ -8,8 +8,8 @@ import { Notification } from 'src/app/_models/notification';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit {
-  notifications:Notification[]=[];
-  seen:boolean=false;
+  notifications: Notification[] = [];
+  seen: boolean = false;
 
   // notifications=[
   //   {title:"Your request to rent equipment1 has been approved",
@@ -25,13 +25,14 @@ export class NotificationComponent implements OnInit {
   //   isseen:false,
   //   isread:false},
   // ]
-  constructor(private notifservice:NotificationService) { }
+  constructor(private notifservice: NotificationService) {
+  }
 
   ngOnInit() {
-    this.notifservice.getAllNottifications().subscribe(notif=>{
+    this.notifservice.getAllNottifications().subscribe(notif => {
       console.log(notif);
-      this.notifications=notif;
-    })
+      this.notifications = notif;
+    });
   }
 
 }

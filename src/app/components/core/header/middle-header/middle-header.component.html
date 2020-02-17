@@ -12,68 +12,53 @@
       <div class="col-md-8 col-sm-6 col-xs-5">
         <nav class="main__menu__nav  hidden-xs hidden-sm">
           <ul class="main__menu">
-            <li class="drop"><a routerLink="/">HOME</a>
+            <li class="drop"><a routerLink="/home">{{'home' | uppercase}}</a></li>
+            <li class="drop"><a>{{'posts' | uppercase}}</a>
               <ul class="dropdown">
-                <li><a routerLink="/home">Home 01</a></li>
+                <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
+                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
               </ul>
             </li>
-            <li><a routerLink="about.html">ABOUT</a></li>
-            <li><a routerLink="service.html">SERVICES</a></li>
-            <li class="drop"><a routerLink="#">pages</a>
-              <ul class="dropdown">
-                <li><a routerLink="service.html">service</a></li>
-              </ul>
-            </li>
-            <li class="drop"><a routerLink="#">PROJECTS</a>
-              <ul class="dropdown">
-                <li><a routerLink="projects-one.html">projects one</a></li>
-              </ul>
-            </li>
-            <li class="drop"><a routerLink="/posts">Posts</a>
-              <ul class="dropdown">
-                <li><a routerLink="/posts">Posts</a></li>
-              </ul>
-            </li>
-            <li><a routerLink="/contact-us">CONTACT</a></li>
+            <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
+            <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
+            <!--            <li class="drop"><a routerLink="#">pages</a>-->
+            <!--              <ul class="dropdown">-->
+            <!--                <li><a routerLink="service.html">service</a></li>-->
+            <!--              </ul>-->
+            <!--            </li>-->
           </ul>
         </nav>
-        <div class="mobile-menu clearfix visible-xs visible-sm">
-          <nav id="mobile_dropdown">
-            <ul>
-              <li><a routerLink="index.html">Home</a>
-                <ul>
-                  <li><a routerLink="index.html">Home 01</a></li>
-                </ul>
-              </li>
-              <li><a routerLink="about.html">ABOUT</a></li>
-              <li><a routerLink="#">PROJECTS</a>
-                <ul>
-                  <li><a routerLink="projects-one.html">projects one</a></li>
-                </ul>
-              </li>
-              <li><a routerLink="#">pages</a>
-                <ul>
-                  <li><a routerLink="service.html">service</a></li>
-                </ul>
-              </li>
-              <li><a routerLink="blog.html">blog</a>
-                <ul>
-                  <li><a routerLink="blog.html">BLog</a></li>
-                </ul>
-              </li>
-              <li><a routerLink="contact.html">contact</a></li>
-            </ul>
-          </nav>
-        </div>
       </div>
-      <div class="col-md-2 col-sm-6 hidden-xs">
-        <div class="htc__header__search">
-          <input type="text" placeholder="SEARCH">
-          <a routerLink="#"><i class="fa fa-search"></i></a>
-        </div>
+      <!--      <div class="col-md-2 col-sm-6 hidden-xs">-->
+      <!--        <div class="htc__header__search">-->
+      <!--          <input type="text" placeholder="SEARCH">-->
+      <!--          <a routerLink="#"><i class="fa fa-search"></i></a>-->
+      <!--        </div>-->
+      <!--      </div>-->
+    </div>
+    <div class="mobile-menu-area mean-container visible-xs visible-sm">
+      <div class="mean-bar">
+        <a (click)="changeMobileUl()" class="meanmenu-reveal meanclose" style="right:0;left:auto;">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+        <nav class="mean-nav">
+          <ul #mobileUl style="display: block;">
+            <li><a routerLink="/home">{{'home' | uppercase}}</a></li>
+            <li><a>{{'posts' | uppercase}}</a>
+              <ul #mobileNestedUl style="display: none;">
+                <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
+                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
+              </ul>
+              <a (click)="changeMobileNestedUl()" class="mean-expand" style="font-size: 18px">-</a>
+            </li>
+            <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
+            <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
-    <div class="mobile-menu-area"></div>
   </div>
 </div>
 <!-- End Mainmenu Area -->

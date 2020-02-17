@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Input} from '@angular/core';
 
 @Component({
   selector: 'app-rejected',
@@ -7,9 +7,10 @@ import { Input } from '@angular/core';
   styleUrls: ['./rejected.component.css']
 })
 export class RejectedComponent implements OnInit {
-  @Input()rejectedProducts;
+  @Input() rejectedProducts;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

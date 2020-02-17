@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from 'src/app/_service/post.service';
-import { ActivatedRoute } from '@angular/router';
-import { Post } from 'src/app/_models/post';
+import {Component, OnInit} from '@angular/core';
+import {PostService} from 'src/app/_service/post.service';
+import {ActivatedRoute} from '@angular/router';
+import {Post} from 'src/app/_models/post';
 
 @Component({
   selector: 'app-post-details',
@@ -10,15 +10,18 @@ import { Post } from 'src/app/_models/post';
 })
 export class PostDetailsComponent implements OnInit {
 
-  constructor(private postServ:PostService,private aroute:ActivatedRoute) { }
-  postInfo:Post = new Post(1,"","","",1000,"",1);
+  constructor(private postServ: PostService, private aroute: ActivatedRoute) {
+  }
+
+  postInfo: Post = new Post(1, '', '', '', 1000, '', 1);
+
   ngOnInit() {
-    this.aroute.params.subscribe(a=>{
-      this.postServ.getPostDetails(a.id).subscribe(s=>{
+    this.aroute.params.subscribe(a => {
+      this.postServ.getPostDetails(a.id).subscribe(s => {
         this.postInfo = s;
         // console.log(this.postInfo);
-      })
-    })
+      });
+    });
   }
 
 }

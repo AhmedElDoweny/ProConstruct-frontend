@@ -1,49 +1,50 @@
 <div class="container">
-   
-          <!-- Brand and toggle get grouped for better mobile display -->
-          
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown " >
-                   <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
-                     <div class="ht__address__icon glob" >
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                        <span class='badgeAlert'*ngIf="notifications.length>0">{{notifications.length}}</span>
-                        <span *ngIf="notifications.length==0"></span>
-                      </div>
-                     
-                    </button>
-                   <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length>0">
-                    <h3 class="title">Notifications</h3>
-                     <li id='item_notification_1' *ngFor="let item of notifications" class="dropdown-item"[ngClass]="{'isread': item.isread}">
-                         <div class="media">
-                            <div class="media-left"> 
-                              
-                            </div>
-                            <div class="media-body" >
-                               <h3 class="media-heading"> {{item.title}}</h3>
-                               <p>{{item.content}}</p>
-                               
-                            </div>
-                         </div>
-                      </li>
-                      <!-- <a href="#">see all</a>     -->
 
-                   </ul>
-                   <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length==0">
-                       <div class="jumbotron">
-                        <h2>No Notification yet</h2>
-                       </div>
-                   </ul>
+  <!-- Brand and toggle get grouped for better mobile display -->
 
-
-                </li>
-               
-
-               
-             </ul>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown ">
+        <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">
+          <div class="ht__address__icon glob">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            <span class='badgeAlert' *ngIf="notifications.length>0">{{notifications.length}}</span>
+            <span *ngIf="notifications.length==0"></span>
           </div>
-          <!-- /.navbar-collapse -->
-       
- </div>
+
+        </button>
+        <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length>0">
+          <h3 class="title">Notifications</h3>
+          <li id='item_notification_1' *ngFor="let item of notifications" class="dropdown-item"
+              [ngClass]="{'isread': item.isread}">
+            <div class="media">
+              <div class="media-left">
+
+              </div>
+              <div class="media-body">
+                <h3 class="media-heading"> {{item.title}}</h3>
+                <p>{{item.content}}</p>
+
+              </div>
+            </div>
+          </li>
+          <!-- <a href="#">see all</a>     -->
+
+        </ul>
+        <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length==0">
+          <div class="jumbotron">
+            <h2>No Notification yet</h2>
+          </div>
+        </ul>
+
+
+      </li>
+
+
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+
+</div>

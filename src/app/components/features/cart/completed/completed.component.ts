@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-completed',
@@ -6,9 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./completed.component.css']
 })
 export class CompletedComponent implements OnInit {
-  @Input()completedproducts
+  @Input() completedproducts;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ClientService } from 'src/app/_service/client.service';
+import {Router} from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ClientService} from 'src/app/_service/client.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +10,20 @@ import { ClientService } from 'src/app/_service/client.service';
 })
 export class ProfileComponent implements OnInit {
   client;
-  onLogout(){
-    this.clientSer.removeToken()
+
+  onLogout() {
+    this.clientSer.removeToken();
     this.router.navigateByUrl('');
   }
-  constructor(private clientSer:ClientService, private router:Router) { }
+
+  constructor(private clientSer: ClientService, private router: Router) {
+  }
 
   ngOnInit() {
-    this.clientSer.getClient().subscribe(data => {this.client = data},
-      error => console.log(error.error.message))
+    this.clientSer.getClient().subscribe(data => {
+        this.client = data;
+      },
+      error => console.log(error.error.message));
   }
 
 }

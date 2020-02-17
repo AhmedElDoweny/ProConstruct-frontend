@@ -1,0 +1,37 @@
+<div class="col-md-6 col-lg-6  col-lg-offset-1 col-sm-12 col-xs-12 smt-40">
+    <div class="reguest__quote">
+        <div class="section__title text-left">
+            <h2 class="title__line">Add <span class="text--theme">Post</span></h2>
+        </div>
+            <form [formGroup]="addPostForm" (ngSubmit)="addPostt()">
+                <div class="clint__comment__form">
+                    <div class="single__cl__form">
+                        <input type="text" placeholder="Title" formControlName="title">
+                    </div>
+                    <div class="single__cl__form">
+                        <input type="text" placeholder="Category" formControlName="category">
+                    </div>
+                    <!-- <div class="single__cl__form">                
+                        <select formControlName="category">
+                            <option *ngFor="let post of posts" value="{{post.category}}">{{post.category}}</option>
+                        </select>
+                    </div> -->
+                    <div class="single__cl__form">                
+                        <input type="number" placeholder="Price" formControlName="price">
+                    </div>
+                    <div class="single__cl__form">                
+                        <input type="text" placeholder="Image" formControlName="image">
+                    </div>
+                    <div class="single__cl__form">                
+                        <input type="number" placeholder="Client" formControlName="client">
+                    </div>
+                    <div class="single__cl__message">
+                        <textarea name="description" placeholder="Description" formControlName="description"></textarea>
+                    </div>
+                    <div class="clint__submit__btn">
+                        <button class="btn btn-warning btn-block">ADD POST</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>

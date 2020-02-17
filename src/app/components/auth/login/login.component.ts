@@ -15,12 +15,14 @@ export class LoginComponent implements OnInit {
     this.clientSer.login(this.login.value).subscribe(
       data => {
         this.clientSer.setToken(data['token']);
+        this.clientSer.changeFlag();
         this.router.navigateByUrl('/profile');
       },
       err => {
         console.log(err.error.message);
       }
     );
+    
   }
 
   constructor(private clientSer: ClientService, private router: Router) {

@@ -10,10 +10,14 @@
       </div>
       <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
         <div class="header__top__right">
-          <ul class="login-register">
-            <li><a routerLink="login-register.html">LOGIN</a></li>
+          <ul *ngIf="!flag" class="login-register">
+            <li><a routerLink="/login">LOGIN</a></li>
             <li class="separator">/</li>
-            <li><a routerLink="login-register.html">REGISTER</a></li>
+            <li><a routerLink="/register">REGISTER</a></li>
+          </ul>
+          <ul *ngIf="flag">
+            <li style="cursor: pointer;" (click)="logOut()"><a>Logout</a></li>
+            <!-- <button (click)="logOut()">logOut</button> -->
           </ul>
         </div>
       </div>

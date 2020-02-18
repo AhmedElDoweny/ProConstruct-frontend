@@ -15,6 +15,14 @@ export class CartServiceService {
   getAllCarts() {
     return this.http.get<Cart[]>(this.baseurl);
   }
+  cancelrequest(_id: number, post_id){
+    console.log(_id, 'patched', post_id)
+
+    return this.http.patch(this.baseurl + '/' + _id,{
+      _id: post_id
+      
+    })
+  }
 
   constructor(private http: HttpClient) {
   }

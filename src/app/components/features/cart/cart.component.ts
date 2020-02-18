@@ -36,7 +36,6 @@ export class CartComponent implements OnInit {
   }
 
   newcart: Cart;
-  carts: Cart[];
 
 
   ngOnInit() {

@@ -13,11 +13,13 @@ import {PostListComponent} from './components/features/post/post-list/post-list.
 import {PostDetailsComponent} from './components/features/post/post-details/post-details.component';
 import {CartComponent} from './components/features/cart/cart.component';
 import {NotificationComponent} from './components/features/notification/notification.component';
+import { PostAddComponent } from './components/features/post/post-add/post-add.component';
 
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'posts', component: PostListComponent},
-  {path: 'posts/:id', component: PostListComponent},
+  {path: 'posts/:id', component: PostDetailsComponent},
+  {path: 'add-post', component: PostAddComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'cart/:_id', component: CartComponent},
   {path: 'notification', component: NotificationComponent},

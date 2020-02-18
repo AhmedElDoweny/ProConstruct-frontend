@@ -19,4 +19,9 @@ export class PostService {
   getPostDetails(id: number) {
     return this.http.get<Post>(this.baseUrl + '/' + id);
   }
+
+  addPost(postt:Post){
+    return this.http.post<Post>(this.baseUrl,postt);
+  }
+
 }

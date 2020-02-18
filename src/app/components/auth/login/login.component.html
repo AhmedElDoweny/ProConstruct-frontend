@@ -1,15 +1,15 @@
 <div class="htc__login__register__wrap">
-    <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
-<form class="login" [formGroup]="login" (ngSubmit) = onSave() >
-    <input type="text" formControlName = "email" placeholder="Email*">
-    <input type="text" formControlName = "password" placeholder="Password*">
-    <div class="tabs__checkbox">
+  <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
+    <form class="login" [formGroup]="login" (ngSubmit)=onSave()>
+      <input type="text" formControlName="email" placeholder="Email*">
+      <input type="text" formControlName="password" placeholder="Password*">
+      <div class="tabs__checkbox">
         <span class="forget"><a href="#">Forget Pasword?</a></span>
-    </div>
-    <div class="htc__login__btn mt--30">
-       
+      </div>
+      <div class="htc__login__btn mt--30">
+
         <input type="submit" value="submit">
-    </div>
-</form>
-</div>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { ClientService } from 'src/app/_service/client.service';
+import {ClientService} from 'src/app/_service/client.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
@@ -9,10 +9,10 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
-import { RegisterComponent } from './components/auth/register/register.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { LoginRegisterComponent } from './components/auth/login-register/login-register.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import {RegisterComponent} from './components/auth/register/register.component';
+import {LoginComponent} from './components/auth/login/login.component';
+import {LoginRegisterComponent} from './components/auth/login-register/login-register.component';
+import {ProfileComponent} from './components/profile/profile.component';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
 import { AboutUsComponent } from './components/core/about-us/about-us.component';

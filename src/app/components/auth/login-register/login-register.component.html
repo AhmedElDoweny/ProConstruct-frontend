@@ -1,24 +1,25 @@
 <div class="htc__login__register bg__white ptb--150">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <ul class="login__register__menu" role="tablist" >
-                    <li role="presentation" class="login " [ngClass]="flag ? 'active' : ''"><a routerLink='/login'  
-                         >Login</a>
-                    </li>
-                    <li role="presentation" class="register " [ngClass]="!flag ? 'active': ''"><a routerLink='/register'
-                        (click)="toggle()">Register</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
+  <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="htc__login__register__wrap">
-                <app-login *ngIf="flag"></app-login>
-                <app-register *ngIf="!flag"></app-register>
-            </div>
-        </div>
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="login__register__menu" role="tablist">
+          <li role="presentation" class="login " [ngClass]="flag ? 'active' : ''"><a routerLink='/login'
+          >Login</a>
+          </li>
+          <li role="presentation" class="register " [ngClass]="!flag ? 'active': ''"><a routerLink='/register'
+                                                                                        (click)="toggle()">Register</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="htc__login__register__wrap">
+        <app-login *ngIf="flag"></app-login>
+        <app-register *ngIf="!flag"></app-register>
+      </div>
+    </div>
+  </div>
 </div>

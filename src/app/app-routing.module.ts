@@ -4,9 +4,9 @@ import {CommonModule} from '@angular/common';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
 import {LoginRegisterComponent} from './components/auth/login-register/login-register.component';
-import {ProfileComponent} from './components/profile/profile.component'
-import {AuthGuard} from './auth/auth.guard'
-import { from } from 'rxjs';
+import {ProfileComponent} from './components/profile/profile.component';
+import {AuthGuard} from './auth/auth.guard';
+import {from} from 'rxjs';
 import {AboutUsComponent} from './components/core/about-us/about-us.component';
 import {ContactUsComponent} from './components/core/contact-us/contact-us.component';
 import {PostListComponent} from './components/features/post/post-list/post-list.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'notification', component: NotificationComponent},
   {path: 'login', component: LoginRegisterComponent},
   {path: 'register', component: LoginRegisterComponent},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
   {path: '**', component: ErrorComponent}

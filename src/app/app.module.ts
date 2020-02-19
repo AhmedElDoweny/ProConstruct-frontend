@@ -34,6 +34,7 @@ import { FooterLowerComponent } from './components/core/footer/footer-lower/foot
 import { NotificationComponent } from './components/features/notification/notification.component';
 import { PostAddComponent } from './components/features/post/post-add/post-add.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import {SocketioService} from './_service/socketio.service';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
       useClass: AuthInterceptor,
       multi: true
     },
-    ClientService
+    ClientService,
+    SocketioService
   ],
   bootstrap: [AppComponent]
 })

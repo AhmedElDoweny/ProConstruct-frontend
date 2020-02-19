@@ -2,7 +2,7 @@
   <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
     <form class="login" [formGroup]="login" (ngSubmit)=onSave()>
       <input type="text" formControlName="email" placeholder="Email*">
-      <input type="text" formControlName="password" placeholder="Password*">
+      <input type="password" formControlName="password" placeholder="Password*">
       <div class="tabs__checkbox">
         <span class="forget"><a href="#">Forget Pasword?</a></span>
       </div>

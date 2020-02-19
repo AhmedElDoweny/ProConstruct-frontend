@@ -19,13 +19,16 @@ addClient(client) {
 getClient() {
   return this.http.get(this.Url);
 }
+editClient(client){
+  return this.http.patch(this.Url,{edit:client})
+}
 
 login(params) {
   console.log(params);
   return this.http.post(this.authUrl, params, this.noAuthHeader);
 }
-changeFlag(){
-  this.changeF.next(true);
+changeFlag(status: boolean){
+  this.changeF.next(status);
 }
 
 

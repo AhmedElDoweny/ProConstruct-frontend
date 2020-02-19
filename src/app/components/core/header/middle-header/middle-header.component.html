@@ -16,13 +16,14 @@
             <li class="drop"><a routerLink="/profile">{{'profile' | uppercase}}</a></li>
             <li class="drop"><a>{{'posts' | uppercase}}</a>
               <ul class="dropdown">
-                <li><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
-                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
                 <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
               </ul>
             </li>
             <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
             <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a routerLink="/profile" >My Profile</a></li>
             <!--            <li class="drop"><a routerLink="#">pages</a>-->
             <!--              <ul class="dropdown">-->
             <!--                <li><a routerLink="service.html">service</a></li>-->
@@ -51,8 +52,8 @@
             <li><a routerLink="/add-post">{{'profile' | uppercase}}</a></li>
             <li><a>{{'posts' | uppercase}}</a>
               <ul #mobileNestedUl style="display: none;">
-                <li><a routerLink="/my-posts">{{'add post' | uppercase}}</a></li>
-                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/my-posts">{{'add post' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/add-posts">{{'my posts' | uppercase}}</a></li>
                 <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
               </ul>
               <a (click)="changeMobileNestedUl()" class="mean-expand" style="font-size: 18px">-</a>

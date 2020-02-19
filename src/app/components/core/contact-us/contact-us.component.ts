@@ -16,8 +16,8 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   map: any;
 
   // default EGYPT coordinates
-  lat = 30.13155089;
-  lng = 31.30643130;
+  lat = 31.0409949;
+  lng = 31.3589223;
 
   coordinates = new google.maps.LatLng(this.lat, this.lng);
 
@@ -31,7 +31,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
     position: this.coordinates,
     map: this.map,
     title: 'Construction!',
-    icon: 'assets/images/icons/gMarkergit gg.png',
+    icon: 'assets/images/icons/gMarker.png',
     animation: google.maps.Animation.BOUNCE
   });
 

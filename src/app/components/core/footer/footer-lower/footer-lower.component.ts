@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SettingService} from '../../../../_service/setting.service';
 
 @Component({
   selector: 'app-footer-lower',
@@ -6,11 +7,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./footer-lower.component.css']
 })
 export class FooterLowerComponent implements OnInit {
+  private aboutApp: string;
+  private contactEmail: string;
 
-  constructor() {
+  constructor(private settingService: SettingService) {
   }
 
   ngOnInit() {
+    this.settingService.getAnyField('aboutApp').subscribe(data => {
+      this.aboutApp = data.aboutApp;
+    });
+    this.settingService.getAnyField('contactEmail').subscribe(data => {
+      this.contactEmail = data.contactEmail;
+    });
   }
 
 }

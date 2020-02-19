@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];
 

@@ -29,6 +29,7 @@ const routes: Routes = [
   {path: 'profile/edit' ,component: EditProfileComponent },
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];
 

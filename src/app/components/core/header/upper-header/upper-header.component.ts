@@ -13,8 +13,9 @@ export class UpperHeaderComponent implements OnInit {
 
   toggle() {
     if (this.clientSer.isLoggedIn()) {
-      this.flag = true;
+      this.flag = true
     } else {
+      this.clientSer.changeFlag(false);
       this.flag = false;
     }
   }

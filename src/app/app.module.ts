@@ -33,6 +33,7 @@ import { FooterMiddelComponent } from './components/core/footer/footer-middel/fo
 import { FooterLowerComponent } from './components/core/footer/footer-lower/footer-lower.component';
 import { NotificationComponent } from './components/features/notification/notification.component';
 import { PostAddComponent } from './components/features/post/post-add/post-add.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { PostAddComponent } from './components/features/post/post-add/post-add.c
     FooterMiddelComponent,
     FooterLowerComponent,
     NotificationComponent,
-    PostAddComponent
+    PostAddComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

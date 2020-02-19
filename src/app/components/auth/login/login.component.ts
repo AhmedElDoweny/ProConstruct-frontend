@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     this.clientSer.login(this.login.value).subscribe(
       data => {
         this.clientSer.setToken(data['token']);
-        this.clientSer.changeFlag();
+        this.clientSer.changeFlag(true);
         this.router.navigateByUrl('/profile');
       },
       err => {

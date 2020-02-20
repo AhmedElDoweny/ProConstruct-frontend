@@ -53,7 +53,10 @@
           <div class="htc__google__map">
             <h2 class="title__line--5">WHERE WE LOCATED</h2>
             <div class="map__contacts">
-              <div #mapContainer id="googleMap"></div>
+              <!-- <div #mapContainer id="googleMap"></div> -->
+              <agm-map [latitude] = "lat" [longitude] = "lng">
+                <agm-marker  [latitude] = "lat" [longitude] = "lng"></agm-marker>
+            </agm-map>
             </div>
           </div>
         </div>

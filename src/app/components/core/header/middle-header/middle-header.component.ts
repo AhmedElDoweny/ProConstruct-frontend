@@ -11,12 +11,24 @@ export class MiddleHeaderComponent implements OnInit {
   @ViewChild('mobileNestedUl', {static: true}) mobileNestedUl: ElementRef;
 
   isLogged:boolean;
+  role:boolean;
   constructor(private clientSer:ClientService) {
+
+    // if( this.clientSer.isLoggedIn() &&
+    //    JSON.parse(atob(localStorage.getItem('token').split('.')[1])).role == "sProvider"){
+    //   this.role = true
+    // }
+   
+    
   }
 
   ngOnInit() {
     this.isLogged = this.clientSer.isLoggedIn()
-    this.clientSer.changeF.subscribe(status => this.isLogged = status)
+    this.clientSer.changeR.subscribe(state => {this.role = state; console.log("aaaa",state)})
+    this.clientSer.changeF.subscribe(status => {
+      this.isLogged = status;
+    })
+    
   }
 
   changeMobileUl() {

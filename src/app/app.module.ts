@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
+import {AgmCoreModule} from '@agm/core'
 
 import {RegisterComponent} from './components/auth/register/register.component';
 import {LoginComponent} from './components/auth/login/login.component';
@@ -70,7 +71,10 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgFlashMessagesModule.forRoot()
+    NgFlashMessagesModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"
+    })
   ],
   providers: [
     {

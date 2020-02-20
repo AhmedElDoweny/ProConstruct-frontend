@@ -1,3 +1,4 @@
+<div class="container">
 <div class="col-md-6 col-lg-6  col-lg-offset-1 col-sm-12 col-xs-12 smt-40">
     <div class="reguest__quote">
         <div class="section__title text-left">
@@ -8,9 +9,9 @@
                     <div class="single__cl__form">
                         <input type="text" placeholder="Title" formControlName="title">
                     </div>
-                    <div class="single__cl__form">
+                    <!-- <div class="single__cl__form">
                         <input type="text" placeholder="Category" formControlName="category">
-                    </div>
+                    </div> -->
                     <!-- <div class="single__cl__form">                
                         <select formControlName="category">
                             <option *ngFor="let post of posts" value="{{post.category}}">{{post.category}}</option>
@@ -22,16 +23,77 @@
                     <div class="single__cl__form">                
                         <input type="text" placeholder="Image" formControlName="image">
                     </div>
-                    <div class="single__cl__form">                
+                    <!-- <div class="single__cl__form">                
                         <input type="number" placeholder="Client" formControlName="client">
-                    </div>
+                    </div> -->
                     <div class="single__cl__message">
                         <textarea name="description" placeholder="Description" formControlName="description"></textarea>
                     </div>
+                    <div class="row">
+                        <div class="col-3 btn btn-primary" (click)="getLocation()">Get Current Location</div>
+                        <div class="col-3 btn btn-primary ml-2" (click)="showMap()">Choose Custom Location</div>
+                    </div>
+                    <div *ngIf="map">
+                        <agm-map [latitude] = "lat" [longitude] = "lng" (mapClick)="selectLocation($event)">
+                            <agm-marker *ngIf="locationChoosen" [latitude] = "lat" [longitude] = "lng"></agm-marker>
+                        </agm-map>
+                    <div class="col-3 btn btn-primary" (click)="saveLocation()">Save</div>
+                    </div>
+<div>
+                    <!-- Button trigger modal -->
+                    
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Choose Custom Location
+</button>
+<button  type="button" class="btn btn-primary" (click)="getLocation()">
+    Get Current Location
+</button> -->
+
+</div>
+
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Choose Custom Location
+</button>   -->
+  <!-- Modal -->
+  <!-- <div class="modal fade"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Choose Location</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <agm-map [latitude] = "lat" [longitude] = "lng" (mapClick)="selectLocation($event)">
+                    <agm-marker *ngIf="locationChoosen" [latitude] = "lat" [longitude] = "lng"></agm-marker>
+                </agm-map>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+<!-- <div><div (click)="getLocation()" class="btn btn-primary">get Current location</div></div> -->
+
+
                     <div class="clint__submit__btn">
                         <button class="btn btn-warning btn-block">ADD POST</button>
                     </div>
                 </div>
             </form>
     </div>
+    
+    
 </div>
+</div>
+
+

@@ -7,6 +7,7 @@ import { ReplaySubject } from 'rxjs';
 })
 export class ClientService {
   changeF: ReplaySubject<boolean>;
+  changeR: ReplaySubject<boolean>;
 
   private Url: string = 'http://localhost:8080/client';
   private authUrl: string = 'http://localhost:8080/login';
@@ -29,6 +30,10 @@ login(params) {
 }
 changeFlag(status: boolean){
   this.changeF.next(status);
+}
+changeRole(role:boolean){
+  
+  this.changeR.next(role)
 }
 
 
@@ -69,5 +74,6 @@ isLoggedIn() {
 
 constructor(private http: HttpClient) {
   this.changeF = new ReplaySubject<boolean>(1);
+  this.changeR = new ReplaySubject<boolean>(1);
 }
 }

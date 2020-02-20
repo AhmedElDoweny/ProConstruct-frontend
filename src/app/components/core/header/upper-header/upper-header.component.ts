@@ -23,6 +23,7 @@ export class UpperHeaderComponent implements OnInit {
   logOut() {
     this.clientSer.removeToken()
     this.toggle()
+    this.clientSer.changeRole(false)
     this.router.navigateByUrl('')
   }
 

@@ -7,6 +7,7 @@ import {ReplaySubject} from 'rxjs';
 })
 export class ClientService {
   changeF: ReplaySubject<boolean>;
+  changeR: ReplaySubject<boolean>;
 
   private Url: string = 'http://localhost:8080/client';
   private authUrl: string = 'http://localhost:8080/login';
@@ -16,6 +17,18 @@ export class ClientService {
     return this.http.post<any>(this.Url, client);
   }
 
+
+login(params) {
+  console.log(params);
+  return this.http.post(this.authUrl, params, this.noAuthHeader);
+}
+changeFlag(status: boolean){
+  this.changeF.next(status);
+}
+changeRole(role:boolean){
+  
+  this.changeR.next(role)
+}
   getClient() {
     return this.http.get(this.Url);
   }
@@ -23,21 +36,11 @@ export class ClientService {
   editClient(client) {
     return this.http.patch(this.Url, {edit: client});
   }
-
-  login(params) {
-    console.log(params);
-    return this.http.post(this.authUrl, params, this.noAuthHeader);
-  }
-
-  changeFlag(status: boolean) {
-    this.changeF.next(status);
-  }
-
-
+  
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
-
+  
   getToken() {
     return localStorage.getItem('token');
   }
@@ -67,7 +70,9 @@ export class ClientService {
   }
 
 
-  constructor(private http: HttpClient) {
-    this.changeF = new ReplaySubject<boolean>(1);
-  }
+
+constructor(private http: HttpClient) {
+  this.changeF = new ReplaySubject<boolean>(1);
+  this.changeR = new ReplaySubject<boolean>(1);
+}
 }

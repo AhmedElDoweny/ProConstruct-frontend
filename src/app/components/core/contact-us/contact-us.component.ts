@@ -19,6 +19,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   lat :number= 31.0409949;
   lng :number= 31.3589223;
 
+
   // coordinates = new google.maps.LatLng(this.lat, this.lng);
 
   // mapOptions = {
@@ -34,7 +35,6 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   //   icon: 'assets/images/icons/gMarkergit gg.png',
   //   animation: google.maps.Animation.BOUNCE
   // });
-
   contactEmail: string;
   contactForm: FormGroup;
   lastMessageId: number;

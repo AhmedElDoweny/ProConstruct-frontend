@@ -13,26 +13,40 @@ export class PostAddComponent implements OnInit {
   
   // posts:Post[]=[];
   addPostForm:FormGroup;
+
   map = false
   showMap(){
     return this.map = true
   }
   
-
-  addPostt(){
-    console.log(this.addPostForm.value);
-    this.postServ.addPost(this.addPostForm.value).subscribe(a=>{
-      console.log(a);
-    })
-  }
   lng:number = 31.035738300000002
-  lat:number = 31.335663299999997
-  
+  lat:number = 31.335663299999997  
   locationChoosen = true
+imgpreview :string;
+  
+
+  get img(){
+    return this.addPostForm.get('image');
+  }
+
+  uploadFile(event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.addPostForm.patchValue({
+      image: file
+    });
+    this.addPostForm.get("image").updateValueAndValidity();
+
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      this.imgpreview = reader.result as string;        
+    }
+    reader.readAsDataURL(file);
+}
 
   saveLocation(){
     return  this.map = false
   }
+
   selectLocation(event){
     this.lat = event.coords.lat
     this.lng = event.coords.lng
@@ -67,7 +81,24 @@ export class PostAddComponent implements OnInit {
       client:new FormControl(1,Validators.required),
       location: new FormControl({lng: this.lng, lat:this.lat})
     })
-  }
 
+  }
+  addPostt(){
+    this.postServ.addpost(
+                          this.addPostForm.value.title,
+                          this.addPostForm.value.category,
+                          this.addPostForm.value.description,
+                          this.addPostForm.value.price,
+                          this.addPostForm.value.image,
+                          this.addPostForm.value.client,
+                          this.addPostForm.value.location).subscribe(a=>{
+                            console.log(a);
+                            this.router.navigate(['/posts']);
+                          },error =>{
+                            console.log(error);
+                          })
+                          console.log(this.addPostForm.value);                              
+  }
+  
 }
 

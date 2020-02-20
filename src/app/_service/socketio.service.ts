@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import * as io from 'socket.io-client';
 
 @Injectable({
@@ -8,10 +8,15 @@ export class SocketioService {
   private endPoint = 'http://localhost:8080';
   socket;
 
-  constructor() { }
+  constructor() {
+  }
 
-  setupSocketConnection() {
+  setupSocketConnection(clientId) {
     this.socket = io(this.endPoint);
-    console.log('from socket setup method');
+    this.socket.emit('creat socket id', clientId);
+  }
+
+  sendNotification(data: {}, to: number) {
+    this.socket.emit('send notification', {data: data, to: to});
   }
 }

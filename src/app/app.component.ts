@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SocketioService} from './_service/socketio.service';
+import {ClientService} from './_service/client.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,28 @@ import {SocketioService} from './_service/socketio.service';
 })
 export class AppComponent implements OnInit {
   title = 'ProConstruct-frontend';
+  private payload;
 
-  constructor(private socketioService: SocketioService) {
+  constructor(
+    private socketioService: SocketioService,
+    private clientService: ClientService
+  ) {
   }
 
   ngOnInit(): void {
-    this.socketioService.setupSocketConnection();
-    console.log('socket should be connected');
+
+    if (this.clientService.isLoggedIn()) {
+      this.payload = this.clientService.getUserPayload();
+      this.socketioService.setupSocketConnection(this.payload._id);
+    }
+
+    this.socketioService.socket.on('receive notification', d => {
+      console.log(d);
+      console.log('received something');
+    });
+  }
+
+  sendNotification() {
+    this.socketioService.sendNotification({me: this.payload._id, someData: 'lol'}, 4);
   }
 }

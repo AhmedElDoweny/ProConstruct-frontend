@@ -15,12 +15,21 @@
                         <select formControlName="category">
                             <option *ngFor="let post of posts" value="{{post.category}}">{{post.category}}</option>
                         </select>
-                    </div> -->
+                    </div> -->                    
                     <div class="single__cl__form">                
                         <input type="number" placeholder="Price" formControlName="price">
                     </div>
-                    <div class="single__cl__form">                
+                    <!-- <div class="single__cl__form">                
                         <input type="text" placeholder="Image" formControlName="image">
+                    </div> -->
+                    <div class="single__cl__form">                
+                        <div class="imgpreview" *ngIf="imgpreview && imgpreview !== null">
+                            <img [src]="imgpreview" [alt]="addPostForm.value.name" height="50px" width="50px">
+                          </div>
+                    </div>
+                    <div class="single__cl__form">                
+                        <input type="file" placeholder="Image" (change)="uploadFile($event)" 
+                        accept="image/*">
                     </div>
                     <div class="single__cl__form">                
                         <input type="number" placeholder="Client" formControlName="client">

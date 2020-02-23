@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
         console.log(err.error.message);
       }
     );
+    this.clientSer.changeFlag(true)
 
   }
 

@@ -13,21 +13,24 @@ import {PostListComponent} from './components/features/post/post-list/post-list.
 import {PostDetailsComponent} from './components/features/post/post-details/post-details.component';
 import {CartComponent} from './components/features/cart/cart.component';
 import {NotificationComponent} from './components/features/notification/notification.component';
-import { PostAddComponent } from './components/features/post/post-add/post-add.component';
+import {PostAddComponent} from './components/features/post/post-add/post-add.component';
+import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'posts', component: PostListComponent},
   {path: 'posts/:id', component: PostDetailsComponent},
-  {path: 'add-post', component: PostAddComponent},
+  {path: 'add-post', component: PostAddComponent, canActivate: [AuthGuard]},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'cart/:_id', component: CartComponent},
   {path: 'notification', component: NotificationComponent},
   {path: 'login', component: LoginRegisterComponent},
   {path: 'register', component: LoginRegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile/edit', component: EditProfileComponent},
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: '**', component: ErrorComponent}
 ];
 

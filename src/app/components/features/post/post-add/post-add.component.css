@@ -1,0 +1,15 @@
+
+agm-map {
+    height: 400px;
+    /* width: 560px; */
+}
+
+.modal-backdrop{
+    position: relative;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}

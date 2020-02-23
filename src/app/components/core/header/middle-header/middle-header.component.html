@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-2 col-sm-6 col-xs-7">
         <div class="logo">
-          <a routerLink="index.html">
+          <a routerLink="/home">
             <img src="../../../../../assets/images/logo/sinply-construction.png" alt="logo image">
           </a>
         </div>
@@ -13,15 +13,18 @@
         <nav class="main__menu__nav  hidden-xs hidden-sm">
           <ul class="main__menu">
             <li class="drop"><a routerLink="/home">{{'home' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a routerLink="/profile" >{{'profile' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a [routerLink]="cartPath" >{{'orders' | uppercase}}</a></li>
             <li class="drop"><a>{{'posts' | uppercase}}</a>
               <ul class="dropdown">
+                <li *ngIf="isLogged"><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
                 <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
-                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
-                <li><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
               </ul>
             </li>
             <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
             <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
+
             <!--            <li class="drop"><a routerLink="#">pages</a>-->
             <!--              <ul class="dropdown">-->
             <!--                <li><a routerLink="service.html">service</a></li>-->
@@ -47,10 +50,13 @@
         <nav class="mean-nav">
           <ul #mobileUl style="display: block;">
             <li><a routerLink="/home">{{'home' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a routerLink="/add-post">{{'profile' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a [routerLink]="cartPath" >{{'orders' | uppercase}}</a></li>
             <li><a>{{'posts' | uppercase}}</a>
               <ul #mobileNestedUl style="display: none;">
+                <li *ngIf="isLogged"><a routerLink="/my-posts">{{'add post' | uppercase}}</a></li>
+                <li *ngIf="isLogged"><a routerLink="/add-posts">{{'my posts' | uppercase}}</a></li>
                 <li><a routerLink="/posts">{{'all posts' | uppercase}}</a></li>
-                <li><a routerLink="/my-posts">{{'my posts' | uppercase}}</a></li>
               </ul>
               <a (click)="changeMobileNestedUl()" class="mean-expand" style="font-size: 18px">-</a>
             </li>

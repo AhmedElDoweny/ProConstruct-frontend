@@ -11,30 +11,30 @@ declare const google: any;
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapContainer', {static: true}) gmap: ElementRef;
+  // @ViewChild('mapContainer', {static: true}) gmap: ElementRef;
   // map: google.maps.Map;
-  map: any;
+  // map: any;
 
   // default EGYPT coordinates
-  lat = 30.13155089;
-  lng = 31.30643130;
+  lat :number= 31.0409949;
+  lng :number= 31.3589223;
 
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
 
-  mapOptions = {
-    center: this.coordinates,
-    zoom: 12,
-    scrollwheel: false,
-  };
+  // coordinates = new google.maps.LatLng(this.lat, this.lng);
 
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-    title: 'Construction!',
-    icon: 'assets/images/icons/gMarkergit gg.png',
-    animation: google.maps.Animation.BOUNCE
-  });
+  // mapOptions = {
+  //   center: this.coordinates,
+  //   zoom: 12,
+  //   scrollwheel: false,
+  // };
 
+  // marker = new google.maps.Marker({
+  //   position: this.coordinates,
+  //   map: this.map,
+  //   title: 'Construction!',
+  //   icon: 'assets/images/icons/gMarkergit gg.png',
+  //   animation: google.maps.Animation.BOUNCE
+  // });
   contactEmail: string;
   contactForm: FormGroup;
   lastMessageId: number;
@@ -65,13 +65,13 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.mapInitializer();
+    // this.mapInitializer();
   }
 
-  mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
-    this.marker.setMap(this.map);
-  }
+  // mapInitializer() {
+  //   this.map = new google.maps.Map(this.gmap.nativeElement, this.mapOptions);
+  //   this.marker.setMap(this.map);
+  // }
 
   sendMessage() {
     if (this.contactForm.controls.email.valid

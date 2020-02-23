@@ -1,16 +1,15 @@
 export class Client {
     constructor(
-        _id?:number,
-        name?:string,
-        password?:string,
-        email?:string,
-        role?: String,
-        location?: String,
-        phone?: String,
-        image?: String,
-        post?:number,
-        cart?:number,
-        notification?:number
-        ){}
-
+        public _id?: number,
+        public name?: string,
+        public password?: string,
+        public email?:string,
+        public phone?: string,
+        public location?: string,
+        public role?: string,
+        public post?: [number],
+        public cart?: number,
+        public image?: string,
+        public notification?: [number]
+    ){}
 }

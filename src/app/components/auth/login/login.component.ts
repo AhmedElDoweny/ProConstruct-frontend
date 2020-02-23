@@ -15,7 +15,12 @@ export class LoginComponent implements OnInit {
     this.clientSer.login(this.login.value).subscribe(
       data => {
         this.clientSer.setToken(data['token']);
-        this.clientSer.changeFlag();
+        this.clientSer.changeFlag(true);
+        console.log('payload', this.clientSer.getUserPayload().role)
+        if(this.clientSer.getUserPayload().role == 'sProvider'){
+          console.log('from if')
+          this.clientSer.changeRole(true)
+        }
         this.router.navigateByUrl('/profile');
       },
       err => {

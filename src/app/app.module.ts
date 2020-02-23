@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
+import {AgmCoreModule} from '@agm/core'
 
 import {RegisterComponent} from './components/auth/register/register.component';
 import {LoginComponent} from './components/auth/login/login.component';
@@ -33,6 +34,8 @@ import { FooterMiddelComponent } from './components/core/footer/footer-middel/fo
 import { FooterLowerComponent } from './components/core/footer/footer-lower/footer-lower.component';
 import { NotificationComponent } from './components/features/notification/notification.component';
 import { PostAddComponent } from './components/features/post/post-add/post-add.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import {SocketioService} from './_service/socketio.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { PostAddComponent } from './components/features/post/post-add/post-add.c
     FooterMiddelComponent,
     FooterLowerComponent,
     NotificationComponent,
-    PostAddComponent
+    PostAddComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,10 @@ import { PostAddComponent } from './components/features/post/post-add/post-add.c
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgFlashMessagesModule.forRoot()
+    NgFlashMessagesModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI'
+    })
   ],
   providers: [
     {
@@ -76,7 +83,8 @@ import { PostAddComponent } from './components/features/post/post-add/post-add.c
       useClass: AuthInterceptor,
       multi: true
     },
-    ClientService
+    ClientService,
+    SocketioService
   ],
   bootstrap: [AppComponent]
 })

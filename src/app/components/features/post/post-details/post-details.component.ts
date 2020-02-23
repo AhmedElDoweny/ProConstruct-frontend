@@ -12,14 +12,16 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(private postServ: PostService, private aroute: ActivatedRoute) {
   }
-
+  x=3;
   postInfo: Post = new Post(1, '', '', '', 1000, '', 1);
 
   ngOnInit() {
     this.aroute.params.subscribe(a => {
       this.postServ.getPostDetails(a.id).subscribe(s => {
         this.postInfo = s;
-        // console.log(this.postInfo);
+        console.log(s);
+        console.log(this.postInfo["client"]);
+
       });
     });
   }

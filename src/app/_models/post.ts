@@ -1,3 +1,5 @@
+import { Client } from './client';
+
 export class Post {
   constructor(
     _id: number,
@@ -6,7 +8,7 @@ export class Post {
     description: string,
     price: number,
     image: string,
-    client: number
+    client: Client
   ) {
   }
 }

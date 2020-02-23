@@ -18,17 +18,20 @@ export class ClientService {
   }
 
 
-login(params) {
-  console.log(params);
-  return this.http.post(this.authUrl, params, this.noAuthHeader);
-}
-changeFlag(status: boolean){
-  this.changeF.next(status);
-}
-changeRole(role:boolean){
-  
-  this.changeR.next(role)
-}
+  login(params) {
+    console.log(params);
+    return this.http.post(this.authUrl, params, this.noAuthHeader);
+  }
+
+  changeFlag(status: boolean) {
+    this.changeF.next(status);
+  }
+
+  changeRole(role: boolean) {
+
+    this.changeR.next(role);
+  }
+
   getClient() {
     return this.http.get(this.Url);
   }
@@ -36,11 +39,11 @@ changeRole(role:boolean){
   editClient(client) {
     return this.http.patch(this.Url, {edit: client});
   }
-  
+
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
-  
+
   getToken() {
     return localStorage.getItem('token');
   }
@@ -50,9 +53,9 @@ changeRole(role:boolean){
   }
 
   getUserPayload() {
-    let token = this.getToken();
+    const token = this.getToken();
     if (token) {
-      let userPayload = atob(token.split('.')[1]);
+      const userPayload = atob(token.split('.')[1]);
       return JSON.parse(userPayload);
     } else {
       return null;
@@ -60,7 +63,7 @@ changeRole(role:boolean){
   }
 
   isLoggedIn() {
-    let userPayload = this.getUserPayload();
+    const userPayload = this.getUserPayload();
     if (userPayload) {
       return (userPayload.exp > (Date.now() / 1000));
     } else {
@@ -70,9 +73,8 @@ changeRole(role:boolean){
   }
 
 
-
-constructor(private http: HttpClient) {
-  this.changeF = new ReplaySubject<boolean>(1);
-  this.changeR = new ReplaySubject<boolean>(1);
-}
+  constructor(private http: HttpClient) {
+    this.changeF = new ReplaySubject<boolean>(1);
+    this.changeR = new ReplaySubject<boolean>(1);
+  }
 }

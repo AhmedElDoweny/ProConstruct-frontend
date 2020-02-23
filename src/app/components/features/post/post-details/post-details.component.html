@@ -62,6 +62,11 @@
                     demoralized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
                     blame belongs to those </p>
                 </div>
+                <div style="margin-top: 20px;">
+                  <app-addtocart [_post_id]="postInfo._id" ></app-addtocart>
+                  <app-cancelrequest [item_id]="item._id" (click)="cancelpending(item._id)"></app-cancelrequest>
+
+                </div>
                 <div class="bl__post__share">
                   <span>Share : </span>
                   <ul class="bl__post__link">
@@ -70,6 +75,7 @@
                     <li><a routerLink="#"><i class="fa fa-tumblr"></i></a></li>
                     <li><a routerLink="#"><i class="fa fa-skype"></i></a></li>
                   </ul>
+                 
                 </div>
               </div>          
             </div>

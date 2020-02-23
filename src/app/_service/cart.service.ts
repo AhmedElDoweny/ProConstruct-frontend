@@ -19,9 +19,19 @@ export class CartServiceService {
     console.log(_id, 'patched', post_id)
 
     return this.http.patch(this.baseurl + '/' + _id,{
+      pull:true,
       _id: post_id
       
     })
+  }
+  addposttocart(_id: number , post_id){
+    console.log(_id, 'patched', post_id);
+    return this.http.patch(this.baseurl + '/' + _id,{
+      push :true,
+      post_id : post_id
+     
+    })
+
   }
 
   constructor(private http: HttpClient) {

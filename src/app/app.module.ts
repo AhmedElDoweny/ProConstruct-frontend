@@ -36,6 +36,8 @@ import { NotificationComponent } from './components/features/notification/notifi
 import { PostAddComponent } from './components/features/post/post-add/post-add.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import {SocketioService} from './_service/socketio.service';
+import { AddtocartComponent } from './components/features/post/addtocart/addtocart.component';
+import { CancelrequestComponent } from './components/features/cart/cancelrequest/cancelrequest.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {SocketioService} from './_service/socketio.service';
     FooterLowerComponent,
     NotificationComponent,
     PostAddComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AddtocartComponent,
+    CancelrequestComponent
   ],
   imports: [
     BrowserModule,

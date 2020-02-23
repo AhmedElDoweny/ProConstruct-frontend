@@ -23,12 +23,13 @@ export class AppComponent implements OnInit {
     if (this.clientService.isLoggedIn()) {
       this.payload = this.clientService.getUserPayload();
       this.socketioService.setupSocketConnection(this.payload._id);
+
+      this.socketioService.socket.on('receive notification', d => {
+        console.log(d);
+        console.log('received something');
+      });
     }
 
-    this.socketioService.socket.on('receive notification', d => {
-      console.log(d);
-      console.log('received something');
-    });
   }
 
   sendNotification() {

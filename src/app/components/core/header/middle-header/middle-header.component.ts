@@ -1,4 +1,4 @@
-import { ClientService } from 'src/app/_service/client.service';
+import {ClientService} from 'src/app/_service/client.service';
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
@@ -10,25 +10,28 @@ export class MiddleHeaderComponent implements OnInit {
   @ViewChild('mobileUl', {static: true}) moblieUl: ElementRef;
   @ViewChild('mobileNestedUl', {static: true}) mobileNestedUl: ElementRef;
 
-  isLogged:boolean;
-  role:boolean;
-  constructor(private clientSer:ClientService) {
+  isLogged: boolean;
+  role: boolean;
+  cartPath: string;
 
-    // if( this.clientSer.isLoggedIn() &&
-    //    JSON.parse(atob(localStorage.getItem('token').split('.')[1])).role == "sProvider"){
-    //   this.role = true
-    // }
-   
-    
+  constructor(private clientSer: ClientService) {
   }
 
   ngOnInit() {
-    this.isLogged = this.clientSer.isLoggedIn()
-    this.clientSer.changeR.subscribe(state => {this.role = state; console.log("aaaa",state)})
+    this.isLogged = this.clientSer.isLoggedIn();
+    this.clientSer.changeR.subscribe(state => {
+      this.role = state;
+      console.log('role-> ', state);
+    });
+
     this.clientSer.changeF.subscribe(status => {
       this.isLogged = status;
-    })
-    
+    });
+
+    if (this.isLogged) {
+      const clientPayload = this.clientSer.getUserPayload();
+      this.cartPath = `cart/${clientPayload.cart}`;
+    }
   }
 
   changeMobileUl() {

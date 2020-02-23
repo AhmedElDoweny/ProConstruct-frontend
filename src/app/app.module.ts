@@ -74,7 +74,7 @@ import {SocketioService} from './_service/socketio.service';
     AppRoutingModule,
     NgFlashMessagesModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"
+      apiKey: 'AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI'
     })
   ],
   providers: [

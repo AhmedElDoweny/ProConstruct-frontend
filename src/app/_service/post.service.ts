@@ -38,6 +38,5 @@ export class PostService {
             return this.http.post(this.baseUrl,formData);
   }
 
-  
 
 }

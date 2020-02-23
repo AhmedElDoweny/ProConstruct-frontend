@@ -15,9 +15,9 @@
             <li class="separator">/</li>
             <li><a routerLink="/register">REGISTER</a></li>
           </ul>
-          <ul *ngIf="flag">
+          <ul *ngIf="flag" class="list-inline">
+            <li><span class="welcommeMsg">Welcome {{clientName}}</span></li>
             <li style="cursor: pointer;" (click)="logOut()"><a>Logout</a></li>
-            <!-- <button (click)="logOut()">logOut</button> -->
           </ul>
         </div>
       </div>

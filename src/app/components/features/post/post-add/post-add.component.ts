@@ -93,11 +93,11 @@ export class PostAddComponent implements OnInit {
       this.addPostForm.value.price,
       this.addPostForm.value.image,
       this.addPostForm.value.client).subscribe(a => {
-      console.log(a);
-      this.router.navigate(['/posts']);
-    }, error => {
-      console.log(error);
-    });
+        console.log(a);
+        this.router.navigate(['/posts']);
+      }, error => {
+        console.log('error: ', error);
+      });
     console.log(this.addPostForm.value);
   }
 

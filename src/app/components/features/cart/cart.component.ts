@@ -1,3 +1,4 @@
+import { ClientService } from 'src/app/_service/client.service';
 import {Component, OnInit} from '@angular/core';
 import {CartServiceService} from 'src/app/_service/cart.service';
 import {ActivatedRoute} from '@angular/router';
@@ -32,20 +33,18 @@ export class CartComponent implements OnInit {
     this.completedFlag = false;
   }
 
-  constructor(private cartservice: CartServiceService, private arote: ActivatedRoute) {
+  constructor(private cartservice: CartServiceService, private arote: ActivatedRoute, private clientservice:ClientService) {
   }
 
   newcart: Cart;
 
 
   ngOnInit() {
-    this.arote.params.subscribe(a => {
-      console.log('a', a._id);
-      this.cartservice.getCart(a._id).subscribe(c => {
-        this.newcart = c;
-        console.log('c', c);
+    let cart_id = this.clientservice.getUserPayload().cart;
+    this.cartservice.getCart(cart_id).subscribe(c => {
+      this.newcart = c;
+      console.log('c', c);
 
-      });
     });
   }
 

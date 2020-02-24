@@ -63,8 +63,14 @@
                     blame belongs to those </p>
                 </div>
                 <div style="margin-top: 20px;">
-                  <app-addtocart [_post_id]="postInfo._id" ></app-addtocart>
-                  <app-cancelrequest [item_id]="item._id" (click)="cancelpending(item._id)"></app-cancelrequest>
+                  <div *ngIf="ordered">
+                    <app-addtocart [_post_id]="postInfo._id"(click)="ordered=!ordered" ></app-addtocart>
+
+                  </div>
+                  <div *ngIf="!ordered">
+                    <app-cancelrequest [item_id]="postInfo._id" (click)="ordered=!ordered"></app-cancelrequest>
+
+                  </div>
 
                 </div>
                 <div class="bl__post__share">

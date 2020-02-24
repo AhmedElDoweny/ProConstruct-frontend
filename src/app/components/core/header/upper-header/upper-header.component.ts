@@ -1,6 +1,6 @@
-import { ClientService } from './../../../../_service/client.service';
-import { Component, OnInit, SimpleChange, OnChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import {ClientService} from './../../../../_service/client.service';
+import {Component, OnInit, SimpleChange, OnChanges} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-upper-header',
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 })
 export class UpperHeaderComponent implements OnInit {
   flag: boolean;
-
+  clientName: string;
 
   toggle() {
     if (this.clientSer.isLoggedIn()) {
-      this.flag = true
+      this.flag = true;
     } else {
       this.clientSer.changeFlag(false);
       this.flag = false;
@@ -21,19 +21,23 @@ export class UpperHeaderComponent implements OnInit {
   }
 
   logOut() {
-    this.clientSer.removeToken()
-    this.toggle()
-    this.clientSer.changeRole(false)
-    this.router.navigateByUrl('')
+    this.clientSer.removeToken();
+    this.toggle();
+    this.clientSer.changeRole(false);
+    this.router.navigateByUrl('');
   }
 
   constructor(private clientSer: ClientService, private router: Router) {
   }
 
   ngOnInit() {
-    this.toggle()
-    this.clientSer.changeF.subscribe(status => this.flag = status)
+    this.toggle();
+    this.clientSer.changeF.subscribe(status => this.flag = status);
+
+    if (this.clientSer.isLoggedIn()) {
+      const clientPayload = this.clientSer.getUserPayload();
+      this.clientName = clientPayload.name;
+      console.log(this.clientName);
+    }
   }
-
-
 }

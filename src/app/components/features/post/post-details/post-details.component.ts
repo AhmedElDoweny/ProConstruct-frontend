@@ -3,6 +3,8 @@ import {PostService} from 'src/app/_service/post.service';
 import {ActivatedRoute} from '@angular/router';
 import {Post} from 'src/app/_models/post';
 import {Client} from 'src/app/_models/client';
+import { ClientService } from 'src/app/_service/client.service';
+import { CartServiceService } from 'src/app/_service/cart.service';
 
 
 @Component({
@@ -11,8 +13,8 @@ import {Client} from 'src/app/_models/client';
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
-
-  constructor(private postServ: PostService, private aroute: ActivatedRoute) {
+ 
+  constructor(private postServ: PostService, private aroute: ActivatedRoute,private cartservice:CartServiceService,private clientservice:ClientService) {
   }
 
   x = 3;

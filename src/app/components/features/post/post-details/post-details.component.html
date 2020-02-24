@@ -7,11 +7,11 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="bradcaump__inner text-center">
-              <h2 class="bradcaump-title">Post Details {{postInfo._id}}</h2>
+              <h2 class="bradcaump-title">Post Details</h2>
               <nav class="bradcaump-inner">
-                <a class="breadcrumb-item" routerLink="index.html">Home</a>
+                <a class="breadcrumb-item" routerLink="/">Home</a>
                 <span class="brd-separetor">-</span>
-                <span class="breadcrumb-item active">Post Details {{postInfo.title}}</span>
+                <span class="breadcrumb-item active">Post Details / {{postInfo.title}}</span>
               </nav>
             </div>
           </div>
@@ -31,36 +31,14 @@
                   <img [src]="postInfo.image" [alt]="postInfo.title">                
                 <div class="blog__hover__info">
                   <ul class="blog__meta">
-                    <li>By : {{postInfo.title}}<a routerLink="#"></a></li>
+                    <li>By : {{postInfo.client.name}}<a routerLink="#"></a></li>
                     <li>20 July</li>
                   </ul>
                 </div>
               </div>
-              <div class="htc__blog__details">
-                <h2>Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do eiusmod trole that are bound to ensue
-                  trouble that are bound to ensue</h2>
-                <div class="bl__dtl">
-                  <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
-                    demoralized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
-                    blame belongs to those who fail in theiruty through weakness of will, which is the same as saying
-                    through shrinking from toil and pain. These cases are perfectly ple and easy to distinguish. In a
-                    free hour, when our power of choice is untrammelled and when nothing prevents </p>
-                  <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
-                    demoralized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
-                    blame belongs to those </p>
-                </div>
-                <blockquote>“On the other hand, we denounce with righteous indignation and dislike men who are so
-                  bguiled demolized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
-                  blame belongs to those men who are so beguiled demoral”
-                </blockquote>
-                <div class="bl__dtl">
-                  <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
-                    demoralized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
-                    blame belongs to those who fail in theiruty through weakness of will, which is the same as saying
-                    through shrinking from toil and pain</p>
-                  <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
-                    demoralized On the er hand, we denounce with pain and trouble that are bound to ensue; and equal
-                    blame belongs to those </p>
+              <div class="htc__blog__details">                
+                <div>
+                  {{postInfo.description}}
                 </div>
                 <div style="margin-top: 20px;">
                   <div *ngIf="ordered">
@@ -87,13 +65,7 @@
             </div>
 
           </div>
-        </div>
-        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 smt-40 xmt-40">
-          <div class="htc__page__sidebar">
-          
-           
-          </div>
-        </div>
+        </div>        
       </div>
     </div>
   </section>

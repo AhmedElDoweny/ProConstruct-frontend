@@ -17,7 +17,6 @@ export class PostDetailsComponent implements OnInit {
   constructor(private postServ: PostService, private aroute: ActivatedRoute,private cartservice:CartServiceService,private clientservice:ClientService) {
   }
 
-  x = 3;
   postInfo: Post = new Post(1, '', '', '', 1000, '', new Client());
 
   ngOnInit() {

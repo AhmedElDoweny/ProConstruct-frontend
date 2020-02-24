@@ -12,13 +12,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-changeto=true;
-changetoadd(){
-  this.changeto=false
-}
-changetocancel(){
-  this.changeto=true
-}
+
 
   posts: Post[] = [];
 

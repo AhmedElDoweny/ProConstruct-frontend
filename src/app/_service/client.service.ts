@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs';
-import { Client } from '../_models/client';
+import {Client} from '../_models/client';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class ClientService {
   changeF: ReplaySubject<boolean>;
   changeR: ReplaySubject<boolean>;
 
-  private Url: string = 'http://localhost:8080/client';
-  private authUrl: string = 'http://localhost:8080/login';
+  private Url = 'http://localhost:8080/client';
+  private authUrl = 'http://localhost:8080/login';
   noAuthHeader = {headers: new HttpHeaders({'NoAuth': 'True'})};
 
   addClient(client) {

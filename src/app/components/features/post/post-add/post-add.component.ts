@@ -72,7 +72,6 @@ export class PostAddComponent implements OnInit {
     // this.postServ.getAllPosts().subscribe(a=>{
     // this.posts=a;
     // });
-    //gitthis.client_Id = this.clientSer.getUserPayload()._id
     this.addPostForm = new FormGroup({
       // _id: new FormControl(100,Validators.required),
       title: new FormControl('', Validators.required),

@@ -10,12 +10,12 @@
           <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" *ngFor="let post of posts">
             <div class="blog foo">
               <div class="blog__thumb">
-                <a routerLink="blog-details.html">
+                <a routerLink="/posts/{{post._id}}">
                   <img src="{{post.image}}" alt="blog image">
                 </a>
                 <div class="blog__hover__info">
                   <ul class="blog__meta">
-                    <li>By : <a routerLink="#">{{post.client.name}}</a></li>
+                    <li>By : {{post.client.name}}</li>
                     <li>20 July</li>
                   </ul>
                 </div>
@@ -27,8 +27,7 @@
                 <h2><a routerLink="/posts/{{post._id}}">Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do
                   eiusmod </a></h2>
                 <div class="blog__btn">
-                  <a routerLink="/posts/{{post._id}}">READ MORE<i class="zmdi zmdi-long-arrow-right"></i></a>                 
-
+                  <a routerLink="/posts/{{post._id}}">READ MORE<i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
 
               </div>

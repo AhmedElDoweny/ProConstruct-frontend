@@ -1,6 +1,8 @@
+import { tap } from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ClientService} from 'src/app/_service/client.service';
+import { Client } from 'src/app/_models/client';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +11,7 @@ import {ClientService} from 'src/app/_service/client.service';
   encapsulation: ViewEncapsulation.Native
 })
 export class ProfileComponent implements OnInit {
-  client;
+  client = new Client(1,"","","","","","");
 
   onLogout() {
     this.clientSer.removeToken();
@@ -22,8 +24,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.clientSer.getClient().subscribe(data => {
         this.client = data;
+        
       },
       error => console.log(error.error.message));
+   
   }
 
 }

@@ -1,9 +1,25 @@
 <form class="login" [formGroup]="register" (ngSubmit)="onSave()">
-  <input type="text" placeholder="User Name*" formControlName="name">
-  <input type="password" placeholder="Password*" formControlName="password">
-  <input [class.is-invalid]="register.get('email').invalid && register.get('email').touched"
-         type="email" placeholder="Email*" formControlName="email">
-  <input type="text" placeholder="Phone*" formControlName="phone">
+  <ng-flash-message></ng-flash-message>
+  <div class="form-group">
+    <input type="text" placeholder="User Name*" formControlName="name">
+    <span class="text-danger" *ngIf="Name.errors?.pattern && Name.touched">Please Enter a Valid name</span>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password*" formControlName="password">
+    <span class="text-danger" *ngIf="Password.errors?.pattern && Password.touched">
+      Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number
+    </span>
+  </div>
+  <div class="form-group">
+    <input type="email" placeholder="Email*" formControlName="email">
+    <span class="text-danger" *ngIf="Email.errors?.pattern && Email.touched">Please Enter a valid Email</span>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Phone*" formControlName="phone">
+    <span class="text-danger" *ngIf="Phone.errors?.pattern && Phone.touched">Please Enter a valid mobile number</span>
+  </div>
+    
   <div class="form-group">
     <label for="">role</label>
     <select formControlName="role" class="form-control">

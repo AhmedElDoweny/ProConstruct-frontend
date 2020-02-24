@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ReplaySubject} from 'rxjs';
+import { Client } from '../_models/client';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class ClientService {
   }
 
   getClient() {
-    return this.http.get(this.Url);
+    return this.http.get<Client>(this.Url);
   }
 
   editClient(client) {

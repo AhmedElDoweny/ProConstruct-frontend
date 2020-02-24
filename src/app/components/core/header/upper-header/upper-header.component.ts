@@ -1,6 +1,7 @@
 import {ClientService} from './../../../../_service/client.service';
 import {Component, OnInit, SimpleChange, OnChanges} from '@angular/core';
 import {Router} from '@angular/router';
+import {SocketioService} from '../../../../_service/socketio.service';
 
 @Component({
   selector: 'app-upper-header',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 export class UpperHeaderComponent implements OnInit {
   flag: boolean;
   clientName: string;
+  notificationFlag: boolean;
 
   toggle() {
     if (this.clientSer.isLoggedIn()) {
@@ -27,7 +29,10 @@ export class UpperHeaderComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  constructor(private clientSer: ClientService, private router: Router) {
+  constructor(
+    private clientSer: ClientService,
+    private socketioService: SocketioService,
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -35,6 +40,7 @@ export class UpperHeaderComponent implements OnInit {
     this.clientSer.changeF.subscribe(status => this.flag = status);
 
     if (this.clientSer.isLoggedIn()) {
+      this.socketioService.notificationFlag.subscribe(status => this.notificationFlag = status);
       const clientPayload = this.clientSer.getUserPayload();
       this.clientName = clientPayload.name;
       console.log(this.clientName);

@@ -72,6 +72,7 @@ export class PostAddComponent implements OnInit {
     // this.posts=a;
     // });
 
+
     this.addPostForm = new FormGroup({
       // _id: new FormControl(100,Validators.required),
       title: new FormControl('', Validators.required),

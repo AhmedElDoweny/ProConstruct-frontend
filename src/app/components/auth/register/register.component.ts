@@ -36,7 +36,10 @@ export class RegisterComponent implements OnInit {
       data => {
         this.clientSer.setToken(data['token']);
         this.router.navigateByUrl('/profile');
-        this.clientSer.changeFlag(true)
+        this.clientSer.changeFlag(true);
+        if(this.clientSer.getUserPayload().role == 'sProvider'){
+          this.clientSer.changeRole(true)
+        }
       },
       err => {
         if(err.error.length == 1){

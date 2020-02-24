@@ -1,3 +1,4 @@
+import { ClientService } from 'src/app/_service/client.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
@@ -14,6 +15,9 @@ export class PostAddComponent implements OnInit {
   lat = 31.335663299999997;
   locationChoosen = true;
   imgpreview: string;
+  clientId: any;
+  position: string
+
 
   // posts:Post[]=[];
   addPostForm: FormGroup;
@@ -42,6 +46,8 @@ export class PostAddComponent implements OnInit {
   }
 
   saveLocation() {
+    this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`
+    this.addPostForm.patchValue({location:this.position})
     return this.map = false;
   }
 
@@ -51,7 +57,7 @@ export class PostAddComponent implements OnInit {
     this.locationChoosen = true;
   }
 
-  constructor(private postServ: PostService, private router: Router) {
+  constructor(private postServ: PostService, private router: Router, private clientSer:ClientService) {
   }
 
 
@@ -59,6 +65,8 @@ export class PostAddComponent implements OnInit {
     navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+        this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`
+        this.addPostForm.patchValue({location:this.position})
       }
       // function success(position) {
       //   const lat = position.coords.latitude;
@@ -68,38 +76,26 @@ export class PostAddComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.postServ.getAllPosts().subscribe(a=>{
-    // this.posts=a;
-    // });
-
+    this.clientId = this.clientSer.getUserPayload()._id
+    
     this.addPostForm = new FormGroup({
-      // _id: new FormControl(100,Validators.required),
       title: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       price: new FormControl(1000, Validators.required),
-      image: new FormControl('1.jpg', Validators.required),
-      client: new FormControl(1, Validators.required),
-      location: new FormControl({lng: this.lng, lat: this.lat})
+      image: new FormControl(null, Validators.required),
+      client: new FormControl(this.clientId),
+      location: new FormControl(null)
     });
 
   }
 
   addPostt() {
-    this.postServ.addpost(
-      this.addPostForm.value.title,
-      this.addPostForm.value.category,
-      this.addPostForm.value.description,
-      this.addPostForm.value.price,
-      this.addPostForm.value.image,
-      this.addPostForm.value.client).subscribe(a => {
-        console.log(a);
-        this.router.navigate(['/posts']);
-      }, error => {
-        console.log('error: ', error);
-      });
-    console.log(this.addPostForm.value);
+    this.postServ.addpost(this.addPostForm.value).subscribe(a => {
+          this.router.navigate(['/posts']);
+        }, error => {
+          console.log('error: ', error);
+        })
   }
-
 }
 

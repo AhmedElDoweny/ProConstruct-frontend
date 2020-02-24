@@ -12,7 +12,6 @@ export class UpperHeaderComponent implements OnInit {
   flag: boolean;
   clientName: string;
   notificationFlag: boolean;
-
   toggle() {
     if (this.clientSer.isLoggedIn()) {
       this.flag = true;
@@ -21,6 +20,8 @@ export class UpperHeaderComponent implements OnInit {
       this.flag = false;
     }
   }
+
+  
 
   logOut() {
     this.clientSer.removeToken();

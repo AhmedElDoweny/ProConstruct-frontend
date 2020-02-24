@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'posts/:id', component: PostDetailsComponent},
   {path: 'add-post', component: PostAddComponent, canActivate: [AuthGuard]},
   {path: 'contact-us', component: ContactUsComponent},
-  {path: 'cart/:_id', component: CartComponent, canActivate: [AuthGuard]},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginRegisterComponent},
   {path: 'register', component: LoginRegisterComponent},

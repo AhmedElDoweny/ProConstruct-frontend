@@ -13,11 +13,10 @@ import { CartServiceService } from 'src/app/_service/cart.service';
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
- 
+ ordered:boolean=true;
   constructor(private postServ: PostService, private aroute: ActivatedRoute,private cartservice:CartServiceService,private clientservice:ClientService) {
   }
 
-  x = 3;
   postInfo: Post = new Post(1, '', '', '', 1000, '', new Client());
 
   ngOnInit() {

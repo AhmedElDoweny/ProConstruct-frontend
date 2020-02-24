@@ -4,7 +4,6 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
 import {Router} from '@angular/router';
 import {Post} from 'src/app/_models/post';
-import { ClientService } from 'src/app/_service/client.service';
 
 @Component({
   selector: 'app-post-add',

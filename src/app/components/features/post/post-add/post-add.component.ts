@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
 import {Router} from '@angular/router';
 import {Post} from 'src/app/_models/post';
+import { ClientService } from 'src/app/_service/client.service';
 
 @Component({
   selector: 'app-post-add',
@@ -14,7 +15,7 @@ export class PostAddComponent implements OnInit {
   lat = 31.335663299999997;
   locationChoosen = true;
   imgpreview: string;
-
+  client_Id;
   // posts:Post[]=[];
   addPostForm: FormGroup;
   map = false;
@@ -51,7 +52,7 @@ export class PostAddComponent implements OnInit {
     this.locationChoosen = true;
   }
 
-  constructor(private postServ: PostService, private router: Router) {
+  constructor(private postServ: PostService, private router: Router, private clientSer: ClientService) {
   }
 
 
@@ -71,7 +72,7 @@ export class PostAddComponent implements OnInit {
     // this.postServ.getAllPosts().subscribe(a=>{
     // this.posts=a;
     // });
-
+    //gitthis.client_Id = this.clientSer.getUserPayload()._id
     this.addPostForm = new FormGroup({
       // _id: new FormControl(100,Validators.required),
       title: new FormControl('', Validators.required),
@@ -79,13 +80,14 @@ export class PostAddComponent implements OnInit {
       description: new FormControl('', Validators.required),
       price: new FormControl(1000, Validators.required),
       image: new FormControl('1.jpg', Validators.required),
-      client: new FormControl(1, Validators.required),
+      client: new FormControl(this.clientSer.getUserPayload()._id, Validators.required),
       location: new FormControl({lng: this.lng, lat: this.lat})
     });
 
   }
 
   addPostt() {
+
     this.postServ.addpost(
       this.addPostForm.value.title,
       this.addPostForm.value.category,

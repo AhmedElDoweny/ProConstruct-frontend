@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class UpperHeaderComponent implements OnInit {
   flag: boolean;
   clientName: string;
-
+  date = new Date().toLocaleString();
   toggle() {
     if (this.clientSer.isLoggedIn()) {
       this.flag = true;
@@ -19,6 +19,8 @@ export class UpperHeaderComponent implements OnInit {
       this.flag = false;
     }
   }
+
+  
 
   logOut() {
     this.clientSer.removeToken();

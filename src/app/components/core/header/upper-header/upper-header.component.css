@@ -1,5 +1,17 @@
 @import "../../../../../assets/css/shortcode/shortcodes.css";
 
-.welcommeMsg{
-  color:white;
+.redCircle {
+  color: red;
+  font-size: .6rem;
+  position: relative;
+  top: -0.4rem;
+  left: 0.9rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .redCircle {
+    position: relative;
+    top: -0.5rem;
+    left: 0.9rem;
+  }
 }

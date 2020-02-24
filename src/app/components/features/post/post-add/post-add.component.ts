@@ -4,6 +4,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
 import {Router} from '@angular/router';
 import {Post} from 'src/app/_models/post';
+import { ClientService } from 'src/app/_service/client.service';
 
 @Component({
   selector: 'app-post-add',
@@ -15,9 +16,8 @@ export class PostAddComponent implements OnInit {
   lat = 31.335663299999997;
   locationChoosen = true;
   imgpreview: string;
+  position: string;
   clientId: any;
-  position: string
-
 
   // posts:Post[]=[];
   addPostForm: FormGroup;
@@ -57,7 +57,10 @@ export class PostAddComponent implements OnInit {
     this.locationChoosen = true;
   }
 
-  constructor(private postServ: PostService, private router: Router, private clientSer:ClientService) {
+  constructor(private postServ: PostService,
+              private router: Router,
+              private clientSer:ClientService
+             ){
   }
 
 
@@ -77,14 +80,13 @@ export class PostAddComponent implements OnInit {
 
   ngOnInit() {
     this.clientId = this.clientSer.getUserPayload()._id
-    
     this.addPostForm = new FormGroup({
       title: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       price: new FormControl(1000, Validators.required),
       image: new FormControl(null, Validators.required),
-      client: new FormControl(this.clientId),
+      client: new FormControl(this.clientId, Validators.required),
       location: new FormControl(null)
     });
 

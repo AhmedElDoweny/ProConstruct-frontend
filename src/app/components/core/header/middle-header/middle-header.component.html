@@ -14,7 +14,7 @@
           <ul class="main__menu">
             <li class="drop"><a routerLink="/home">{{'home' | uppercase}}</a></li>
             <li *ngIf="isLogged"><a routerLink="/profile" >{{'profile' | uppercase}}</a></li>
-            <li *ngIf="isLogged"><a [routerLink]="cartPath" >{{'orders' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a routerLink="/cart" >{{'orders' | uppercase}}</a></li>
             <li *ngIf="role" class="drop"><a>{{'posts' | uppercase}}</a>
               <ul class="dropdown">
                 <li *ngIf="isLogged "><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
@@ -53,7 +53,7 @@
           <ul #mobileUl style="display: none;">
             <li><a routerLink="/home">{{'home' | uppercase}}</a></li>
             <li *ngIf="isLogged"><a routerLink="/add-post">{{'profile' | uppercase}}</a></li>
-            <li *ngIf="isLogged"><a [routerLink]="cartPath" >{{'orders' | uppercase}}</a></li>
+            <li *ngIf="isLogged"><a routerLink="/cart" >{{'orders' | uppercase}}</a></li>
             <li *ngIf="role" ><a>{{'posts' | uppercase}}</a>
               <ul #mobileNestedUl style="display: none;">
                 <li *ngIf="isLogged"><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>

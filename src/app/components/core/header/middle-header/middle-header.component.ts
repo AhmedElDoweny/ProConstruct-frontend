@@ -12,8 +12,7 @@ export class MiddleHeaderComponent implements OnInit {
 
   isLogged: boolean;
   role: boolean;
-  r: string;
-  cartPath: string;
+  r:string
 
   constructor(private clientSer: ClientService) {
     // if (this.r === 'sprovider') {
@@ -37,10 +36,7 @@ export class MiddleHeaderComponent implements OnInit {
       this.isLogged = status;
     });
 
-    if (this.isLogged) {
-      const clientPayload = this.clientSer.getUserPayload();
-      this.cartPath = `cart/${clientPayload.cart}`;
-    }
+    
   }
 
   changeMobileUl() {

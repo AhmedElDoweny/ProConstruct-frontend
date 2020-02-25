@@ -24,14 +24,26 @@ export class MiddleHeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    if (this.isLogged) {
-      this.r = this.clientSer.getUserPayload().role;
-      this.isLogged = this.clientSer.isLoggedIn();
-      this.clientSer.changeR.subscribe(state => {
-        this.role = state;
-      });
-    }
-    this.role = this.r === 'sProvider';
+    // if (this.isLogged) {
+    //   this.r = this.clientSer.getUserPayload().role;
+    //   this.isLogged = this.clientSer.isLoggedIn();
+    //   this.clientSer.changeR.subscribe(state => {
+    //     this.role = state;
+    //   });
+    // }
+    // this.role = this.r === 'sProvider';
+    // this.clientSer.changeF.subscribe(status => {
+    //   this.isLogged = status;
+    // });
+
+    this.r = this.clientSer.getUserPayload().role;
+    this.isLogged = this.clientSer.isLoggedIn();
+    this.clientSer.changeR.subscribe(state => {
+      this.role = state;
+      console.log('role-> ', state);
+    });
+    this.role = this.clientSer.getUserPayload().role === "sProvider" ? true : false;
+    console.log("role ---> ",this.role)
     this.clientSer.changeF.subscribe(status => {
       this.isLogged = status;
     });

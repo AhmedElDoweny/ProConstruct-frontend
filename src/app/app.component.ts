@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SocketioService} from './_service/socketio.service';
 import {ClientService} from './_service/client.service';
+import {NotificationService} from './_service/notification.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private socketioService: SocketioService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private notificationService: NotificationService
   ) {
   }
 
@@ -24,16 +26,18 @@ export class AppComponent implements OnInit {
       this.payload = this.clientService.getUserPayload();
       this.socketioService.setupSocketConnection(this.payload._id);
 
-      this.socketioService.socket.on('receive notification', d => {
+      this.socketioService.socket.on('receive notification', data => {
         this.socketioService.changeNotificationFlag();
-        console.log(d);
-        console.log('received something');
+        this.notificationService.updateNotificationArr(data.someData);
       });
     }
 
   }
 
   sendNotification() {
-    this.socketioService.sendNotification({me: this.payload._id, someData: 'lol'}, 4);
+    this.notificationService.createNotification({title: 'test', content: 'test content', client: 4}).subscribe(notification => {
+      console.log('sent notification: ', notification);
+      this.socketioService.sendNotification({me: this.payload._id, someData: notification}, 4);
+    });
   }
 }

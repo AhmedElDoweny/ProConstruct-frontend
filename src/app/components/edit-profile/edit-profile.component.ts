@@ -10,18 +10,18 @@ import {Client} from '../../_models/client'
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class EditProfileComponent implements OnInit {
   clientInfo
- 
+
   editClientInfo: FormGroup
   onSave(){
     this.clientSer.editClient(this.editClientInfo.value).subscribe(data => {console.log(data)})
-    
+
     this.router.navigateByUrl('/profile')
   }
-  constructor(private clientSer: ClientService, private router: Router) { 
+  constructor(private clientSer: ClientService, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,9 +35,9 @@ export class EditProfileComponent implements OnInit {
     })
 
     this.clientInfo = this.clientSer.getClient().pipe(tap(user => {
-      this.editClientInfo.patchValue(user);      
+      this.editClientInfo.patchValue(user);
     }));
-    
+
 
   }
 

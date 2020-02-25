@@ -8,7 +8,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
-import {AgmCoreModule} from '@agm/core'
+import {AgmCoreModule} from '@agm/core';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {RegisterComponent} from './components/auth/register/register.component';
 import {LoginComponent} from './components/auth/login/login.component';
@@ -38,6 +40,9 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import {SocketioService} from './_service/socketio.service';
 import { AddtocartComponent } from './components/features/post/addtocart/addtocart.component';
 import { CancelrequestComponent } from './components/features/cart/cancelrequest/cancelrequest.component';
+import { ForgetPwComponent } from './components/auth/forget-pw/forget-pw.component';
+import { ResetPwComponent } from './components/auth/reset-pw/reset-pw.component';
+import { MypostsComponent } from './components/features/post/myposts/myposts.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +73,10 @@ import { CancelrequestComponent } from './components/features/cart/cancelrequest
     PostAddComponent,
     EditProfileComponent,
     AddtocartComponent,
-    CancelrequestComponent
+    CancelrequestComponent,
+    ForgetPwComponent,
+    ResetPwComponent,
+    MypostsComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +84,8 @@ import { CancelrequestComponent } from './components/features/cart/cancelrequest
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
     NgFlashMessagesModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI'

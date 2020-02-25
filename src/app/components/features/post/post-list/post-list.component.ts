@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 export class PostListComponent implements OnInit {
   changeto = true;
   posts: Post[] = [];
-
+  p:number = 1;
   changetoadd() {
     this.changeto = false;
   }

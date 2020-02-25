@@ -4,10 +4,12 @@
     <div class="container">
       <div class="row">
         <div class="htc__blog__wrap clearfix">
-
-
+         <!-- search  -->
+          <div >
+            <input type="text" placeholder="Search" [(ngModel)]="searchItem">
+          </div>
           <!-- Start Single Blog -->
-          <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" *ngFor="let post of posts">
+          <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" *ngFor="let post of posts | filter:searchItem | paginate:{itemsPerPage:6,currentPage:p}">
             <div class="blog foo">
               <div class="blog__thumb">
                 <a routerLink="/posts/{{post._id}}">
@@ -24,8 +26,7 @@
                 <h1 class="text-center">{{post.title}}</h1>
               </div>
               <div class="blog__details">
-                <h2><a routerLink="/posts/{{post._id}}">Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do
-                  eiusmod </a></h2>
+                <h2><a routerLink="/posts/{{post._id}}">{{post.description | slice:0:30}} ... </a></h2>
                 <div class="blog__btn">
                   <a routerLink="/posts/{{post._id}}">READ MORE<i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
@@ -33,10 +34,11 @@
               </div>
             </div>
           </div>
-          <!-- End Single Blog -->
+          <!-- End Single Blog -->          
         </div>
       </div>
     </div>
   </section>
   <!-- End Blog Area -->
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

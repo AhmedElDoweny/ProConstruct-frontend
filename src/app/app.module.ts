@@ -38,6 +38,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import {SocketioService} from './_service/socketio.service';
 import { AddtocartComponent } from './components/features/post/addtocart/addtocart.component';
 import { CancelrequestComponent } from './components/features/cart/cancelrequest/cancelrequest.component';
+import { ForgetPwComponent } from './components/auth/forget-pw/forget-pw.component';
+import { ResetPwComponent } from './components/auth/reset-pw/reset-pw.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { CancelrequestComponent } from './components/features/cart/cancelrequest
     PostAddComponent,
     EditProfileComponent,
     AddtocartComponent,
-    CancelrequestComponent
+    CancelrequestComponent,
+    ForgetPwComponent,
+    ResetPwComponent
   ],
   imports: [
     BrowserModule,

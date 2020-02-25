@@ -37,6 +37,8 @@
     "font-awesome": "^4.7.0",
     "jquery": "^1.12.4",
     "ng-flash-messages": "^0.3.0",
+    "ng2-search-filter": "^0.5.1",
+    "ngx-pagination": "^5.0.0",
     "ngx-slick-carousel": "^0.4.7",
     "rxjs": "~6.4.0",
     "slick-carousel": "^1.8.1",

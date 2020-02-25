@@ -1,0 +1,16 @@
+<app-lower-header headerTitle="Forget Password"></app-lower-header>
+<div class="htc__login__register__wrap">
+    <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
+      
+      <form class="login" [formGroup]="forgetPw" (ngSubmit)=onSave()>
+        <ng-flash-message></ng-flash-message>
+        <div class="form-group">
+        <input type="text" formControlName="email" placeholder="Email*">
+        <span class="text-danger" *ngIf="Email.errors?.pattern && Email.touched">Please Enter a valid Email</span>
+          </div>  
+        <div class="htc__login__btn mt--30">
+          <input [disabled] = "disable ? true : false" type="submit" value="Send Email">
+        </div>
+      </form>
+    </div>
+  </div>

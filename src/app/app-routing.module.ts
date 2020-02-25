@@ -15,6 +15,8 @@ import {CartComponent} from './components/features/cart/cart.component';
 import {NotificationComponent} from './components/features/notification/notification.component';
 import {PostAddComponent} from './components/features/post/post-add/post-add.component';
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
+import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
+import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
 import { MypostsComponent } from './components/features/post/myposts/myposts.component';
 
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path: 'register', component: LoginRegisterComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'profile/edit', component: EditProfileComponent},
+  {path: 'forget', component: ForgetPwComponent},
+  {path: 'reset/:token', component: ResetPwComponent},
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},

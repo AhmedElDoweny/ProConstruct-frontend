@@ -14,6 +14,14 @@ export class ClientService {
   private authUrl = 'http://localhost:8080/login';
   noAuthHeader = {headers: new HttpHeaders({'NoAuth': 'True'})};
 
+  forgetPw(email){
+    return this.http.post<any>('http://localhost:8080/forget',email);
+  }
+  resetPw(pass,url){
+    //console.log(`http://localhost:8080/reset/${url}`)
+    return this.http.post<any>(`http://localhost:8080/reset/${url}`,pass);
+  }
+ 
   addClient(client) {
     return this.http.post<any>(this.Url, client);
   }

@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
       this.socketioService.setupSocketConnection(this.payload._id);
 
       this.socketioService.socket.on('receive notification', d => {
+        this.socketioService.changeNotificationFlag();
         console.log(d);
         console.log('received something');
       });

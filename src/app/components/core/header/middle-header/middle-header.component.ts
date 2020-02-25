@@ -15,18 +15,27 @@ export class MiddleHeaderComponent implements OnInit {
   r:string
 
   constructor(private clientSer: ClientService) {
-    setTimeout(() => {
-      console.log('role',this.role)
-    }, 2000);
-    if(this.r == 'sprovider'){
-      this.role = true
-    }
-    else{
-      this.role = false
-    }
+    // if (this.r === 'sprovider') {
+    //   this.role = true;
+    // } else {
+    //   this.role = false;
+    // }
   }
 
   ngOnInit() {
+
+    // if (this.isLogged) {
+    //   this.r = this.clientSer.getUserPayload().role;
+    //   this.isLogged = this.clientSer.isLoggedIn();
+    //   this.clientSer.changeR.subscribe(state => {
+    //     this.role = state;
+    //   });
+    // }
+    // this.role = this.r === 'sProvider';
+    // this.clientSer.changeF.subscribe(status => {
+    //   this.isLogged = status;
+    // });
+
     this.r = this.clientSer.getUserPayload().role;
     this.isLogged = this.clientSer.isLoggedIn();
     this.clientSer.changeR.subscribe(state => {

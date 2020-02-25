@@ -1,6 +1,6 @@
-import { Cart } from './../../../../_models/cart';
-import { ClientService } from 'src/app/_service/client.service';
-import { CartServiceService } from './../../../../_service/cart.service';
+import {Cart} from './../../../../_models/cart';
+import {ClientService} from 'src/app/_service/client.service';
+import {CartServiceService} from './../../../../_service/cart.service';
 import {Component, OnInit} from '@angular/core';
 import {Post} from 'src/app/_models/post';
 import {PostService} from 'src/app/_service/post.service';
@@ -12,11 +12,23 @@ import {Router} from '@angular/router';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-
-
+  changeto = true;
   posts: Post[] = [];
+  p:number = 1;
+  changetoadd() {
+    this.changeto = false;
+  }
 
-  constructor(private postServ: PostService, private router: Router,private cartservice:CartServiceService,private clientservice:ClientService) {
+  changetocancel() {
+    this.changeto = true;
+  }
+
+  constructor(
+    private postServ: PostService,
+    private router: Router,
+    private cartservice: CartServiceService,
+    private clientservice: ClientService
+  ) {
   }
 
   ngOnInit() {

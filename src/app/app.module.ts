@@ -8,7 +8,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
-import {AgmCoreModule} from '@agm/core'
+import {AgmCoreModule} from '@agm/core';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {RegisterComponent} from './components/auth/register/register.component';
 import {LoginComponent} from './components/auth/login/login.component';
@@ -78,6 +80,8 @@ import { MypostsComponent } from './components/features/post/myposts/myposts.com
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
     NgFlashMessagesModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI'

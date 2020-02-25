@@ -21,8 +21,6 @@ export class UpperHeaderComponent implements OnInit {
     }
   }
 
-  
-
   logOut() {
     this.clientSer.removeToken();
     this.toggle();

@@ -1,4 +1,4 @@
-import { ClientService } from './../../../../_service/client.service';
+import {ClientService} from 'src/app/_service/client.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
@@ -45,8 +45,8 @@ export class PostAddComponent implements OnInit {
   }
 
   saveLocation() {
-    this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`
-    this.addPostForm.patchValue({location:this.position})
+    this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`;
+    this.addPostForm.patchValue({location: this.position});
     return this.map = false;
   }
 
@@ -58,8 +58,8 @@ export class PostAddComponent implements OnInit {
 
   constructor(private postServ: PostService,
               private router: Router,
-              private clientSer:ClientService
-             ){
+              private clientSer: ClientService
+  ) {
   }
 
 
@@ -67,8 +67,8 @@ export class PostAddComponent implements OnInit {
     navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`
-        this.addPostForm.patchValue({location:this.position})
+        this.position = `{"lng": ${this.lng}, "lat": ${this.lat}}`;
+        this.addPostForm.patchValue({location: this.position});
       }
       // function success(position) {
       //   const lat = position.coords.latitude;
@@ -78,7 +78,7 @@ export class PostAddComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clientId = this.clientSer.getUserPayload()._id
+    this.clientId = this.clientSer.getUserPayload()._id;
     this.addPostForm = new FormGroup({
       title: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
@@ -92,10 +92,10 @@ export class PostAddComponent implements OnInit {
 
   addPostt() {
     this.postServ.addpost(this.addPostForm.value).subscribe(a => {
-          this.router.navigate(['/posts']);
-        }, error => {
-          console.log('error: ', error);
-        })
+      this.router.navigate(['/posts']);
+    }, error => {
+      console.log('error: ', error);
+    });
   }
 }
 

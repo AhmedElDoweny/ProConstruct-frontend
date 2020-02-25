@@ -15,11 +15,16 @@
             <li class="separator">/</li>
             <li><a routerLink="/register">REGISTER</a></li>
           </ul>
-          <ul *ngIf="flag" class="list-inline">
-<!--            <li class="welcommeMsg">Welcome <a routerLink="/profile">{{clientName}}</a></li>-->
-            <li><a style=" cursor: pointer;"><i class="fa fa-circle redCircle" *ngIf="notificationFlag"></i><i class="fa fa-bell fa"></i></a></li>
+          <ul *ngIf="flag" class="list-inline header__top__right">
+            <!--            <li class="welcommeMsg">Welcome <a routerLink="/profile">{{clientName}}</a></li>-->
+            <!--            <li><a style=" cursor: pointer;">-->
+            <!--              <i class="fa fa-bell fa"></i>-->
+            <!--              <i></i>-->
+            <!--            </a></li>-->
+            <li>
+              <app-notification></app-notification>
+            </li>
             <li style="cursor: pointer;" (click)="logOut()"><a>Logout</a></li>
-            <li></li>
           </ul>
         </div>
       </div>

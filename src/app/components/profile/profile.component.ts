@@ -8,7 +8,7 @@ import { Client } from 'src/app/_models/client';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ProfileComponent implements OnInit {
   client = new Client(1,"","","","","","");
@@ -24,10 +24,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.clientSer.getClient().subscribe(data => {
         this.client = data;
-        
+
       },
       error => console.log(error.error.message));
-   
+
   }
 
 }

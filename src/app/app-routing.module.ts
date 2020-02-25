@@ -16,12 +16,15 @@ import {NotificationComponent} from './components/features/notification/notifica
 import {PostAddComponent} from './components/features/post/post-add/post-add.component';
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
 import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
-import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component'
+import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
+import { MypostsComponent } from './components/features/post/myposts/myposts.component';
+
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'posts', component: PostListComponent},
   {path: 'posts/:id', component: PostDetailsComponent},
   {path: 'add-post', component: PostAddComponent, canActivate: [AuthGuard]},
+  {path: 'my-posts', component: MypostsComponent, canActivate: [AuthGuard]},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},

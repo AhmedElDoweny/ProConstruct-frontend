@@ -32,16 +32,18 @@ export class CartComponent implements OnInit {
     this.pendingFlag = true;
     this.completedFlag = false;
   }
+  newcart: Cart;
 
   constructor(private cartservice: CartServiceService, private arote: ActivatedRoute, private clientservice:ClientService) {
   }
 
-  newcart: Cart;
 
 
   ngOnInit() {
     let cart_id = this.clientservice.getUserPayload().cart;
     this.cartservice.getCart(cart_id).subscribe(c => {
+      // console.log(cart_id);
+      // console.log(this.clientservice.getUserPayload(),"paylo")
       this.newcart = c;
       console.log('c', c);
 

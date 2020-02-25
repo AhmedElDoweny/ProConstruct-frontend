@@ -14,6 +14,7 @@ import { CartServiceService } from 'src/app/_service/cart.service';
 })
 export class PostDetailsComponent implements OnInit {
  ordered:boolean=true;
+ loged=false;
   constructor(private postServ: PostService, private aroute: ActivatedRoute,private cartservice:CartServiceService,private clientservice:ClientService) {
   }
 
@@ -26,7 +27,9 @@ export class PostDetailsComponent implements OnInit {
         console.log(s);
 
       });
+      
     });
+    this.loged= this.clientservice.isLoggedIn();
   }
 
 }

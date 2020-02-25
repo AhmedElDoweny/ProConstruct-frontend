@@ -1,4 +1,4 @@
-import { ClientService } from 'src/app/_service/client.service';
+import { ClientService } from './../../../../_service/client.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
@@ -84,9 +84,8 @@ export class PostAddComponent implements OnInit {
       category: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       price: new FormControl(1000, Validators.required),
-      image: new FormControl(null, Validators.required),
-      client: new FormControl(this.clientId, Validators.required),
-      location: new FormControl(null)
+      image: new FormControl('1.jpg', Validators.required),
+      location: new FormControl({lng: this.lng, lat: this.lat})
     });
 
   }

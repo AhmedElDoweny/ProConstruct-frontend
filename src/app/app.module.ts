@@ -40,7 +40,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import {SocketioService} from './_service/socketio.service';
 import { AddtocartComponent } from './components/features/post/addtocart/addtocart.component';
 import { CancelrequestComponent } from './components/features/cart/cancelrequest/cancelrequest.component';
-import { from } from 'rxjs';
+import { MypostsComponent } from './components/features/post/myposts/myposts.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { from } from 'rxjs';
     PostAddComponent,
     EditProfileComponent,
     AddtocartComponent,
-    CancelrequestComponent
+    CancelrequestComponent,
+    MypostsComponent
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,8 @@
                 <div>
                   {{postInfo.description}}
                 </div>
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 20px;" *ngIf="loged">
+                  
                   <div *ngIf="ordered">
                     <app-addtocart [_post_id]="postInfo._id"(click)="ordered=!ordered" ></app-addtocart>
 

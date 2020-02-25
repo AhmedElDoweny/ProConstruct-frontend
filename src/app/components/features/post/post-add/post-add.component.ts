@@ -1,3 +1,4 @@
+import { ClientService } from './../../../../_service/client.service';
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
@@ -51,7 +52,7 @@ export class PostAddComponent implements OnInit {
     this.locationChoosen = true;
   }
 
-  constructor(private postServ: PostService, private router: Router) {
+  constructor(private postServ: PostService, private router: Router, private clientservice : ClientService) {
   }
 
 
@@ -79,7 +80,6 @@ export class PostAddComponent implements OnInit {
       description: new FormControl('', Validators.required),
       price: new FormControl(1000, Validators.required),
       image: new FormControl('1.jpg', Validators.required),
-      client: new FormControl(1, Validators.required),
       location: new FormControl({lng: this.lng, lat: this.lat})
     });
 
@@ -92,7 +92,7 @@ export class PostAddComponent implements OnInit {
       this.addPostForm.value.description,
       this.addPostForm.value.price,
       this.addPostForm.value.image,
-      this.addPostForm.value.client).subscribe(a => {
+      this.clientservice.getUserPayload()._id).subscribe(a => {
         console.log(a);
         this.router.navigate(['/posts']);
       }, error => {

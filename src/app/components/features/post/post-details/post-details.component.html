@@ -40,6 +40,13 @@
                 <div>
                   {{postInfo.description}}
                 </div>
+                <div>
+                    <div><h2>Location</h2></div>
+                    <agm-map [latitude]="lat" [longitude]="lng">
+                      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    </agm-map>
+                </div>
+
                 <div style="margin-top: 20px;" *ngIf="loged && postInfo.client._id!=clientid">
                   
                   <div *ngIf="ordered">

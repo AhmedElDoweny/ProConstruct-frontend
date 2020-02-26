@@ -1,6 +1,6 @@
 import {Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ClientService} from 'src/app/_service/client.service';
 import {NgFlashMessageService} from 'ng-flash-messages';
 import {SocketioService} from '../../../_service/socketio.service';
@@ -13,6 +13,15 @@ import {SocketioService} from '../../../_service/socketio.service';
 export class LoginComponent implements OnInit {
   login: FormGroup;
 
+  constructor(
+    private clientSer: ClientService,
+    private router: Router,
+    private ngFlashMessageService: NgFlashMessageService,
+    private socketioService: SocketioService
+  ) {
+
+  }
+
   get Email() {
     return this.login.get('email');
   }
@@ -20,7 +29,6 @@ export class LoginComponent implements OnInit {
   get Pass() {
     return this.login.get('password');
   }
-
 
   onSave() {
     if (this.login.invalid) {
@@ -52,15 +60,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-  constructor(
-    private clientSer: ClientService,
-    private router: Router,
-    private ngFlashMessageService: NgFlashMessageService,
-    private socketioService: SocketioService
-  ) {
-
-  }
-
   ngOnInit() {
     this.login = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]),
@@ -70,7 +69,7 @@ export class LoginComponent implements OnInit {
     if (this.clientSer.isLoggedIn()) {
       this.router.navigateByUrl('/profile');
     }
-    ;
+
 
   }
 

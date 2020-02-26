@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <ul class="login__register__menu" role="tablist">
-          <li role="presentation" class="login " [ngClass]="flag ? 'active' : ''"><a routerLink='/login'
+          <li [ngClass]="flag ? 'active' : ''" class="login " role="presentation"><a routerLink='/login'
           >Login</a>
           </li>
-          <li role="presentation" class="register " [ngClass]="!flag ? 'active': ''"><a routerLink='/register'
-                                                                                        (click)="toggle()">Register</a>
+          <li [ngClass]="!flag ? 'active': ''" class="register " role="presentation"><a (click)="toggle()"
+                                                                                        routerLink='/register'>Register</a>
           </li>
         </ul>
       </div>

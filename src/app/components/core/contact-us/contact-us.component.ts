@@ -1,4 +1,4 @@
-import {Component, ElementRef, AfterViewInit, ViewChild, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {SettingService} from '../../../_service/setting.service';
 import {NgFlashMessageService} from 'ng-flash-messages';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -16,17 +16,8 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   // map: any;
 
   // default EGYPT coordinates
-  lat :number= 31.0409949;
-  lng :number= 31.3589223;
-
-
-  // coordinates = new google.maps.LatLng(this.lat, this.lng);
-
-  // mapOptions = {
-  //   center: this.coordinates,
-  //   zoom: 12,
-  //   scrollwheel: false,
-  // };
+  lat = 31.0409949;
+  lng = 31.3589223;
 
   // marker = new google.maps.Marker({
   //   position: this.coordinates,
@@ -35,6 +26,7 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   //   icon: 'assets/images/icons/gMarkergit gg.png',
   //   animation: google.maps.Animation.BOUNCE
   // });
+
   contactEmail: string;
   contactForm: FormGroup;
   lastMessageId: number;

@@ -12,7 +12,7 @@ export class MiddleHeaderComponent implements OnInit {
 
   isLogged: boolean;
   role: boolean;
-  r:string
+  r: string;
 
   constructor(private clientSer: ClientService) {
     // if (this.r === 'sprovider') {
@@ -42,13 +42,13 @@ export class MiddleHeaderComponent implements OnInit {
       this.role = state;
       console.log('role-> ', state);
     });
-    this.role = this.clientSer.getUserPayload().role === "sProvider" ? true : false;
-    console.log("role ---> ",this.role)
+    this.role = this.clientSer.getUserPayload().role === 'sProvider' ? true : false;
+    console.log('role ---> ', this.role);
     this.clientSer.changeF.subscribe(status => {
       this.isLogged = status;
     });
 
-    
+
   }
 
   changeMobileUl() {

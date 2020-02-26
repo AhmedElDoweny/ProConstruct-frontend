@@ -69,12 +69,12 @@
 
 }
 
-.nohover{
+.nohover {
   padding: 0;
   margin: 0;
 }
 
-.nohover:hover, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus{
+.nohover:hover, .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: transparent;
 }
 

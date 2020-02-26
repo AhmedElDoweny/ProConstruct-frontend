@@ -1,12 +1,11 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
 import {LoginRegisterComponent} from './components/auth/login-register/login-register.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {AuthGuard} from './auth/auth.guard';
-import {from} from 'rxjs';
 import {AboutUsComponent} from './components/core/about-us/about-us.component';
 import {ContactUsComponent} from './components/core/contact-us/contact-us.component';
 import {PostListComponent} from './components/features/post/post-list/post-list.component';
@@ -17,7 +16,7 @@ import {PostAddComponent} from './components/features/post/post-add/post-add.com
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
 import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
 import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
-import { MypostsComponent } from './components/features/post/myposts/myposts.component';
+import {MypostsComponent} from './components/features/post/myposts/myposts.component';
 
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},

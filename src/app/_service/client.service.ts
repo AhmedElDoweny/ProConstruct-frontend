@@ -9,23 +9,27 @@ import {Client} from '../_models/client';
 export class ClientService {
   changeF: ReplaySubject<boolean>;
   changeR: ReplaySubject<boolean>;
-
+  noAuthHeader = {headers: new HttpHeaders({'NoAuth': 'True'})};
   private Url = 'http://localhost:8080/client';
   private authUrl = 'http://localhost:8080/login';
-  noAuthHeader = {headers: new HttpHeaders({'NoAuth': 'True'})};
 
-  forgetPw(email){
-    return this.http.post<any>('http://localhost:8080/forget',email);
+  constructor(private http: HttpClient) {
+    this.changeF = new ReplaySubject<boolean>(1);
+    this.changeR = new ReplaySubject<boolean>(1);
   }
-  resetPw(pass,url){
+
+  forgetPw(email) {
+    return this.http.post<any>('http://localhost:8080/forget', email);
+  }
+
+  resetPw(pass, url) {
     //console.log(`http://localhost:8080/reset/${url}`)
-    return this.http.post<any>(`http://localhost:8080/reset/${url}`,pass);
+    return this.http.post<any>(`http://localhost:8080/reset/${url}`, pass);
   }
- 
+
   addClient(client) {
     return this.http.post<any>(this.Url, client);
   }
-
 
   login(params) {
     console.log(params);
@@ -79,11 +83,5 @@ export class ClientService {
       return false;
     }
 
-  }
-
-
-  constructor(private http: HttpClient) {
-    this.changeF = new ReplaySubject<boolean>(1);
-    this.changeR = new ReplaySubject<boolean>(1);
   }
 }

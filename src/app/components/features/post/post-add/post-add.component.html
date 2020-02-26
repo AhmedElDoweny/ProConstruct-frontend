@@ -4,10 +4,10 @@
       <div class="section__title text-left">
         <h2 class="title__line">Add <span class="text--theme">Post</span></h2>
       </div>
-      <form [formGroup]="addPostForm" (ngSubmit)="addPostt()">
+      <form (ngSubmit)="addPostt()" [formGroup]="addPostForm">
         <div class="clint__comment__form">
           <div class="single__cl__form">
-            <input type="text" placeholder="Title" formControlName="title">
+            <input formControlName="title" placeholder="Title" type="text">
           </div>
           <!-- <div class="single__cl__form">
               <input type="text" placeholder="Category" formControlName="category">
@@ -18,35 +18,35 @@
               </select>
           </div> -->
           <div class="single__cl__form">
-            <input type="number" placeholder="Price" formControlName="price">
+            <input formControlName="price" placeholder="Price" type="number">
           </div>
           <!-- <div class="single__cl__form">
               <input type="text" placeholder="Image" formControlName="image">
           </div> -->
           <div class="single__cl__form">
-            <div class="imgpreview" *ngIf="imgpreview && imgpreview !== null">
-              <img [src]="imgpreview" [alt]="addPostForm.value.name" height="50px" width="50px">
+            <div *ngIf="imgpreview && imgpreview !== null" class="imgpreview">
+              <img [alt]="addPostForm.value.name" [src]="imgpreview" height="50px" width="50px">
             </div>
           </div>
           <div class="single__cl__form">
-            <input type="file" placeholder="Image" (change)="uploadFile($event)"
-                   accept="image/*">
+            <input (change)="uploadFile($event)" accept="image/*" placeholder="Image"
+                   type="file">
           </div>
           <!-- <div class="single__cl__form">
               <input type="number" placeholder="Client" formControlName="client">
           </div> -->
           <div class="single__cl__message">
-            <textarea name="description" placeholder="Description" formControlName="description"></textarea>
+            <textarea formControlName="description" name="description" placeholder="Description"></textarea>
           </div>
           <div class="row">
-            <div class="col-3 btn btn-primary" (click)="getLocation()">Get Current Location</div>
-            <div class="col-3 btn btn-primary ml-2" (click)="showMap()">Choose Custom Location</div>
+            <div (click)="getLocation()" class="col-3 btn btn-primary">Get Current Location</div>
+            <div (click)="showMap()" class="col-3 btn btn-primary ml-2">Choose Custom Location</div>
           </div>
           <div *ngIf="map">
-            <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="selectLocation($event)">
+            <agm-map (mapClick)="selectLocation($event)" [latitude]="lat" [longitude]="lng">
               <agm-marker *ngIf="locationChoosen" [latitude]="lat" [longitude]="lng"></agm-marker>
             </agm-map>
-            <div class="col-3 btn btn-primary" (click)="saveLocation()">Save</div>
+            <div (click)="saveLocation()" class="col-3 btn btn-primary">Save</div>
           </div>
           <div>
             <!-- Button trigger modal -->

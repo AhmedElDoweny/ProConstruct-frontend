@@ -36,9 +36,9 @@ export class NotificationComponent implements OnInit {
 
     this.notifservice.notificationArr.subscribe((notification: Notification) => {
       console.log('notifications before update: ', this.notifications);
-      console.log('received notification: ', notification, typeof(notification));
+      console.log('received notification: ', notification, typeof (notification));
       this.notifications.push(notification);
-      console.log('notifications after update: ', this.notifications , 'recived notification ', notification);
+      console.log('notifications after update: ', this.notifications, 'recived notification ', notification);
     });
   }
 

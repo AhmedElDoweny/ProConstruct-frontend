@@ -1,10 +1,8 @@
-import { tap } from 'rxjs/operators';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ClientService } from './../../_service/client.service';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
-import {Client} from '../../_models/client'
+import {tap} from 'rxjs/operators';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ClientService} from './../../_service/client.service';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,15 +11,19 @@ import {Client} from '../../_models/client'
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class EditProfileComponent implements OnInit {
-  clientInfo
+  clientInfo;
 
-  editClientInfo: FormGroup
-  onSave(){
-    this.clientSer.editClient(this.editClientInfo.value).subscribe(data => {console.log(data)})
+  editClientInfo: FormGroup;
 
-    this.router.navigateByUrl('/profile')
-  }
   constructor(private clientSer: ClientService, private router: Router) {
+  }
+
+  onSave() {
+    this.clientSer.editClient(this.editClientInfo.value).subscribe(data => {
+      console.log(data);
+    });
+
+    this.router.navigateByUrl('/profile');
   }
 
   ngOnInit() {
@@ -31,8 +33,8 @@ export class EditProfileComponent implements OnInit {
     this.editClientInfo = new FormGroup({
       'name': new FormControl('', Validators.required),
       'phone': new FormControl('', Validators.required),
-      'role' : new FormControl('', Validators.required)
-    })
+      'role': new FormControl('', Validators.required)
+    });
 
     this.clientInfo = this.clientSer.getClient().pipe(tap(user => {
       this.editClientInfo.patchValue(user);

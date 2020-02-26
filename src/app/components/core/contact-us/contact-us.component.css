@@ -1,6 +1,6 @@
 @import "../../../../assets/css/shortcode/shortcodes.css";
 
 agm-map {
-    height: 400px;
-    /* width: 560px; */
+  height: 400px;
+  /* width: 560px; */
 }

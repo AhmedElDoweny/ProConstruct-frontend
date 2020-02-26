@@ -1,51 +1,50 @@
 <app-lower-header headerTitle="MY POSTS"></app-lower-header>
 
 <div class="wrapper">
-    <!-- Start Blog Area -->
-    <section class="htc__blog__area ptb--150 bg__white">
-      <div class="container">
-        <div class="row">
-          <div *ngIf="posts.length==0">
-            <h2 class="jumbotron" style="text-align: center;">No posts added</h2>
-            
-          </div>
-          <div class="htc__blog__wrap clearfix" *ngIf="posts.length>0">
-  
-  
-            <!-- Start Single Blog -->
-            <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12" *ngFor="let post of posts">
-              <div class="blog foo">
-                <div class="blog__thumb">
-                  <a routerLink="blog-details.html">
-                    <img src="{{post.image}}" alt="blog image">
-                  </a>
-                  <div class="blog__hover__info">
-                    <ul class="blog__meta">
-                      <li>By : <a routerLink="#">{{post.client.name}}</a></li>
-                      <li>20 July</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="blog__details m-2">
-                  <h1 class="text-center">{{post.title}}</h1>
-                </div>
-                <div class="blog__details">
-                  <h2><a routerLink="/posts/{{post._id}}">Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do
-                    eiusmod </a></h2>
-                  <div class="blog__btn">
-                    <a routerLink="/posts/{{post._id}}">READ MORE<i class="zmdi zmdi-long-arrow-right"></i></a>                 
-  
-                  </div>
-  
+  <!-- Start Blog Area -->
+  <section class="htc__blog__area ptb--150 bg__white">
+    <div class="container">
+      <div class="row">
+        <div *ngIf="posts.length==0">
+          <h2 class="jumbotron" style="text-align: center;">No posts added</h2>
+
+        </div>
+        <div *ngIf="posts.length>0" class="htc__blog__wrap clearfix">
+
+
+          <!-- Start Single Blog -->
+          <div *ngFor="let post of posts" class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="blog foo">
+              <div class="blog__thumb">
+                <a routerLink="blog-details.html">
+                  <img alt="blog image" src="{{post.image}}">
+                </a>
+                <div class="blog__hover__info">
+                  <ul class="blog__meta">
+                    <li>By : <a routerLink="#">{{post.client.name}}</a></li>
+                    <li>20 July</li>
+                  </ul>
                 </div>
               </div>
-            </div>
+              <div class="blog__details m-2">
+                <h1 class="text-center">{{post.title}}</h1>
+              </div>
+              <div class="blog__details">
+                <h2><a routerLink="/posts/{{post._id}}">Lorem ipsum dolor sit amet, cotur adipiscing elit, sed do
+                  eiusmod </a></h2>
+                <div class="blog__btn">
+                  <a routerLink="/posts/{{post._id}}">READ MORE<i class="zmdi zmdi-long-arrow-right"></i></a>
 
-            <!-- End Single Blog -->
+                </div>
+
+              </div>
+            </div>
           </div>
+
+          <!-- End Single Blog -->
         </div>
       </div>
-    </section>
-    <!-- End Blog Area -->
-  </div>
-  
+    </div>
+  </section>
+  <!-- End Blog Area -->
+</div>

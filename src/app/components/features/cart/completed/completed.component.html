@@ -1,33 +1,34 @@
 <h2 *ngIf="completedproducts.length==0" class=" jumbotron text-center">
-    No Result
+  No Result
 </h2>
 <div *ngIf="completedproducts.length>0">
   <table class="table table-stribed hovered">
     <thead class="thead-light">
-      <tr>
-        <th>image</th>
-        <th>description</th>
-        <th>price</th>
-      </tr>
+    <tr>
+      <th>image</th>
+      <th>description</th>
+      <th>price</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of completedproducts">
-        <td class="col-3" > <figure class="pull-left">
-          <img class="media-object img-rounded img-responsive" [src]="item.image" [alt]="item.title">
-        </figure></td>
-        <td class="col-4">
-          <div class="midcart">
-            <h2 class="list-group-item-heading">{{item.title}}</h2>
-            <p class="list-group-item-text"> {{item.description}}
-            </p>
-          </div>
-        </td>
-        <td>{{item.price|currency}}</td>
-      </tr>
+    <tr *ngFor="let item of completedproducts">
+      <td class="col-3">
+        <figure class="pull-left">
+          <img [alt]="item.title" [src]="item.image" class="media-object img-rounded img-responsive">
+        </figure>
+      </td>
+      <td class="col-4">
+        <div class="midcart">
+          <h2 class="list-group-item-heading">{{item.title}}</h2>
+          <p class="list-group-item-text"> {{item.description}}
+          </p>
+        </div>
+      </td>
+      <td>{{item.price|currency}}</td>
+    </tr>
     </tbody>
-</table>
+  </table>
 
-  
+
 </div>
 
-  

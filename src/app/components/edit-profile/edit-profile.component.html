@@ -1,41 +1,41 @@
 <div class="container text-center">
-    <form *ngIf="clientInfo | async; else loading" [formGroup]="editClientInfo" (ngSubmit)='onSave()'>
-        <div class="row mt-4">
-            <div class="col-12 col-lg-4 rounded " style="border: 1px solid #fcc236;">
-              <img class="rounded-circle border center-block img-responsive" src="../../../assets/images/team/1.jpg" alt="">
-              <button class="butt">Upload Photo</button>
-            </div>
-            <div class="col-12 col-lg-7 ml-2 p-3 rounded" style="border: 1px solid #fcc236;">
-              <div class="row text-center">
-                <div class="col-6">
-                  <h6>Name</h6>
-                  <input type="text" class="form-control" formControlName="name">
-                </div>
-                <div class="col-6">
-                  <h6>Phone</h6>
-                  <input type="text" class="form-control" formControlName="phone">
-                </div>
-              </div>
-              <hr>
-              <div class="row text-center">
-                <div class="col-6">
-                  <h6>location</h6>
-                  <input type="text" class="form-control" value="">
-                </div>
-                <div class="col-6">
-                  <h6>Role</h6>
-                  <input type="text" class="form-control" formControlName="role">
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-4 offset-4">
-                  <input type="submit" class="butt" value="Update">
-                </div>
-              </div>
-            </div>
+  <form (ngSubmit)='onSave()' *ngIf="clientInfo | async; else loading" [formGroup]="editClientInfo">
+    <div class="row mt-4">
+      <div class="col-12 col-lg-4 rounded " style="border: 1px solid #fcc236;">
+        <img alt="" class="rounded-circle border center-block img-responsive" src="../../../assets/images/team/1.jpg">
+        <button class="butt">Upload Photo</button>
+      </div>
+      <div class="col-12 col-lg-7 ml-2 p-3 rounded" style="border: 1px solid #fcc236;">
+        <div class="row text-center">
+          <div class="col-6">
+            <h6>Name</h6>
+            <input class="form-control" formControlName="name" type="text">
           </div>
-    </form>
-    <ng-template #loading>Loading data...</ng-template>
-    
+          <div class="col-6">
+            <h6>Phone</h6>
+            <input class="form-control" formControlName="phone" type="text">
+          </div>
+        </div>
+        <hr>
+        <div class="row text-center">
+          <div class="col-6">
+            <h6>location</h6>
+            <input class="form-control" type="text" value="">
+          </div>
+          <div class="col-6">
+            <h6>Role</h6>
+            <input class="form-control" formControlName="role" type="text">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-4 offset-4">
+            <input class="butt" type="submit" value="Update">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <ng-template #loading>Loading data...</ng-template>
+
 </div>

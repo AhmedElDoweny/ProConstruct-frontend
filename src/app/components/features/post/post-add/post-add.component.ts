@@ -91,6 +91,7 @@ export class PostAddComponent implements OnInit {
 
   addPostt() {
     this.postServ.addpost(this.addPostForm.value).subscribe(a => {
+      console.log(a)
       this.router.navigate(['/posts']);
     }, error => {
       console.log('error: ', error);

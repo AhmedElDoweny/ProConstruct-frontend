@@ -1,19 +1,19 @@
 <div class="htc__login__register__wrap">
-  <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
-    
-    <form class="login" [formGroup]="login" (ngSubmit)=onSave()>
+  <div class="single__tabs__panel tab-pane fade in active" id="login" role="tabpanel">
+
+    <form (ngSubmit)=onSave() [formGroup]="login" class="login">
       <ng-flash-message></ng-flash-message>
       <div class="form-group">
-      <input type="text" formControlName="email" placeholder="Email*">
-      <span class="text-danger" *ngIf="Email.errors?.pattern && Email.touched">Please Enter a valid Email</span>
-        </div>
+        <input formControlName="email" placeholder="Email*" type="text">
+        <span *ngIf="Email.errors?.pattern && Email.touched" class="text-danger">Please Enter a valid Email</span>
+      </div>
       <!-- <span *ngIf="email.errors?.required">Enter a valid email</span> -->
       <div class="form-group">
-      <input type="password" formControlName="password" placeholder="Password*">
-      <span class="text-danger" *ngIf="Pass.errors?.required && Pass.touched">Please Enter password</span>
-    </div>
+        <input formControlName="password" placeholder="Password*" type="password">
+        <span *ngIf="Pass.errors?.required && Pass.touched" class="text-danger">Please Enter password</span>
+      </div>
       <div class="tabs__checkbox">
-        <span class="forget"><a routerLink ="/forget">Forget Pasword?</a></span>
+        <span class="forget"><a routerLink="/forget">Forget Pasword?</a></span>
       </div>
       <div class="htc__login__btn mt--30">
 

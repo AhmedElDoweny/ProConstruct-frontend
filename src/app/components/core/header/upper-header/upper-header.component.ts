@@ -1,5 +1,5 @@
 import {ClientService} from './../../../../_service/client.service';
-import {Component, OnInit, SimpleChange, OnChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {SocketioService} from '../../../../_service/socketio.service';
 
@@ -12,6 +12,13 @@ export class UpperHeaderComponent implements OnInit {
   flag: boolean;
   clientName: string;
   notificationFlag: boolean;
+
+  constructor(
+    private clientSer: ClientService,
+    private socketioService: SocketioService,
+    private router: Router) {
+  }
+
   toggle() {
     if (this.clientSer.isLoggedIn()) {
       this.flag = true;
@@ -26,12 +33,6 @@ export class UpperHeaderComponent implements OnInit {
     this.toggle();
     this.clientSer.changeRole(false);
     this.router.navigateByUrl('');
-  }
-
-  constructor(
-    private clientSer: ClientService,
-    private socketioService: SocketioService,
-    private router: Router) {
   }
 
   ngOnInit() {

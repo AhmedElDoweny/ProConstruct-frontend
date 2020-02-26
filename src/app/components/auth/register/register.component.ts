@@ -1,7 +1,7 @@
 import {Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../../_service/client.service';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgFlashMessageService} from 'ng-flash-messages';
 import {SocketioService} from '../../../_service/socketio.service';
 
@@ -13,6 +13,14 @@ import {SocketioService} from '../../../_service/socketio.service';
 export class RegisterComponent implements OnInit {
   register: FormGroup;
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  constructor(
+    private clientSer: ClientService,
+    private router: Router,
+    private NgFlashMessageService: NgFlashMessageService,
+    private socketioService: SocketioService
+  ) {
+  }
 
   get Name() {
     return this.register.get('name');
@@ -33,7 +41,6 @@ export class RegisterComponent implements OnInit {
   get Role() {
     return this.register.get('role');
   }
-
 
   onSave() {
     console.log(this.register.value);
@@ -62,14 +69,6 @@ export class RegisterComponent implements OnInit {
     );
   };
 
-  constructor(
-    private clientSer: ClientService,
-    private router: Router,
-    private NgFlashMessageService: NgFlashMessageService,
-    private socketioService: SocketioService
-  ) {
-  }
-
   ngOnInit() {
 
     this.register = new FormGroup({
@@ -84,7 +83,7 @@ export class RegisterComponent implements OnInit {
       this.socketioService.setupSocketConnection(this.clientSer.getUserPayload()._id);
       this.router.navigateByUrl('/profile');
     }
-    ;
+
   }
 
 }

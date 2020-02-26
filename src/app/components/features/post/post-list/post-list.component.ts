@@ -1,4 +1,3 @@
-import {Cart} from './../../../../_models/cart';
 import {ClientService} from 'src/app/_service/client.service';
 import {CartServiceService} from './../../../../_service/cart.service';
 import {Component, OnInit} from '@angular/core';
@@ -14,22 +13,23 @@ import {Router} from '@angular/router';
 export class PostListComponent implements OnInit {
   changeto = true;
   posts: Post[] = [];
-  p:number = 1;
-  changetoadd() {
-    this.changeto = false;
-  }
-
-  changetocancel() {
-    this.changeto = true;
-  }
+  p = 1;
 
   constructor(
     private postServ: PostService,
-    private router: Router,
-    private cartservice: CartServiceService,
-    private clientservice: ClientService
+    // private router: Router,
+    // private cartservice: CartServiceService,
+    // private clientservice: ClientService
   ) {
   }
+
+  // changetoadd() {
+  //   this.changeto = false;
+  // }
+  //
+  // changetocancel() {
+  //   this.changeto = true;
+  // }
 
   ngOnInit() {
     this.postServ.getAllPosts().subscribe(a => {

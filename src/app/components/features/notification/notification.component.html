@@ -6,20 +6,20 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown ">
-        <a class="dropdown-toggle nohover" data-toggle="dropdown" role="button" aria-haspopup="true"
-           aria-expanded="false">
+        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nohover" data-toggle="dropdown"
+           role="button">
           <div class="ht__address__icon glob">
-            <i class="fa fa-bell" aria-hidden="true"></i>
+            <i aria-hidden="true" class="fa fa-bell"></i>
             <i class="fa fa-circle redCircle"></i>
             <!--            <span class='badgeAlert' *ngIf="notifications.length>0">{{notifications.length}}</span>-->
             <!--            <span *ngIf="notifications.length==0"></span>-->
           </div>
 
         </a>
-        <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length>0">
+        <ul *ngIf="notifications.length>0" class="list-notificacao dropdown-menu">
           <h3 class="title">Notifications</h3>
-          <li id='item_notification_1' *ngFor="let item of notifications" class="dropdown-item"
-              [ngClass]="{'isread': item.isread}">
+          <li *ngFor="let item of notifications" [ngClass]="{'isread': item.isread}" class="dropdown-item"
+              id='item_notification_1'>
             <div class="media">
               <div class="media-left">
               </div>
@@ -31,7 +31,7 @@
           </li>
           <!-- <a href="#">see all</a>     -->
         </ul>
-        <ul class="list-notificacao dropdown-menu" *ngIf="notifications.length==0">
+        <ul *ngIf="notifications.length==0" class="list-notificacao dropdown-menu">
           <div class="jumbotron">
             <h2>there is No Notification</h2>
           </div>

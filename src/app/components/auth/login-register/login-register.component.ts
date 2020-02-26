@@ -9,15 +9,15 @@ import {Router} from '@angular/router';
 export class LoginRegisterComponent implements OnInit {
   flag = true;
 
+  constructor(private router: Router) {
+  }
+
   toggle() {
     if (this.router.url == '/register') {
       this.flag = false;
     } else if (this.router.url == '/login') {
       this.flag = true;
     }
-  }
-
-  constructor(private router: Router) {
   }
 
   ngOnInit() {

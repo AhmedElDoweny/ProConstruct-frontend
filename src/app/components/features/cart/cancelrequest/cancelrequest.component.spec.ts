@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CancelrequestComponent } from './cancelrequest.component';
+import {CancelrequestComponent} from './cancelrequest.component';
 
 describe('CancelrequestComponent', () => {
   let component: CancelrequestComponent;
@@ -8,9 +8,9 @@ describe('CancelrequestComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CancelrequestComponent ]
+      declarations: [CancelrequestComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

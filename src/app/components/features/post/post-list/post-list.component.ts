@@ -1,6 +1,6 @@
 import {ClientService} from 'src/app/_service/client.service';
 import {CartServiceService} from './../../../../_service/cart.service';
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Post} from 'src/app/_models/post';
 import {PostService} from 'src/app/_service/post.service';
 import {Router} from '@angular/router';
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
+  @Input() home: boolean;
   changeto = true;
   posts: Post[] = [];
   p = 1;

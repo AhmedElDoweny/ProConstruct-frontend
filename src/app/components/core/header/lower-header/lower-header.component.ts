@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./lower-header.component.css']
 })
 export class LowerHeaderComponent implements OnInit {
-  @Input() headerTitle: string
+  @Input() headerTitle: string;
 
   constructor(private location: Location) {
   }

@@ -4,10 +4,10 @@
   <div class="row">
     <hr>
     <div class="well">
-    
+
       <div class="container main">
         <div class="row">
-          <div >
+          <div>
             <nav class="main__menu__nav  ">
               <ul class="main__menu">
                 <li class="col-4 btn"><a (click)="showrcompleted()">completed</a></li>
@@ -20,10 +20,10 @@
         </div>
         <div>
           <div *ngIf="completedFlag">
-            <app-completed [completedproducts]="newcart.completed" ></app-completed>
+            <app-completed [completedproducts]="newcart.completed"></app-completed>
           </div>
           <div *ngIf="pendingFlag">
-            <app-pending [pendingproducts]="newcart.pending" [cart_id]="newcart._id" ></app-pending>
+            <app-pending [cart_id]="newcart._id" [pendingproducts]="newcart.pending"></app-pending>
           </div>
           <div *ngIf="rejectedFlag">
             <app-rejected [rejectedProducts]="newcart.rejected"></app-rejected>

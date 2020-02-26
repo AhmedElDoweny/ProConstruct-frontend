@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../_models/post';
-import {Observable} from 'rxjs';
+
 // import {Post} from '../_models/post'
 
 @Injectable({
@@ -36,7 +36,7 @@ export class PostService {
   // }
 
 
-  addpost(post){
+  addpost(post) {
     const formData = new FormData();
     formData.append('title', post.title);
     formData.append('category', post.category);
@@ -44,7 +44,7 @@ export class PostService {
     formData.append('price', post.price);
     formData.append('image', post.image);
     formData.append('client', post.client);
-    formData.append('location',post.location)
+    formData.append('location', post.location);
     return this.http.post(this.baseUrl, formData);
   }
 

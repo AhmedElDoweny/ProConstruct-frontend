@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from 'src/app/_service/post.service';
-import { ClientService } from 'src/app/_service/client.service';
-import { Post } from 'src/app/_models/post';
+import {Component, OnInit} from '@angular/core';
+import {PostService} from 'src/app/_service/post.service';
+import {ClientService} from 'src/app/_service/client.service';
 
 @Component({
   selector: 'app-myposts',
@@ -10,13 +9,16 @@ import { Post } from 'src/app/_models/post';
 })
 export class MypostsComponent implements OnInit {
 
-  constructor(private postservice:PostService,private clientservice:ClientService) { }
-posts=[];
+  posts = [];
+
+  constructor(private postservice: PostService, private clientservice: ClientService) {
+  }
+
   ngOnInit() {
-    this.clientservice.getClient().subscribe(c=>{
+    this.clientservice.getClient().subscribe(c => {
       console.log(c);
-      this.posts = c.post
-    })
+      this.posts = c.post;
+    });
   }
 
 }

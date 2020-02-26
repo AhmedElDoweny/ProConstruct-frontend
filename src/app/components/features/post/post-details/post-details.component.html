@@ -1,25 +1,5 @@
 <div class="wrapper">
-  <!-- Start Bradcaump area -->
-  <div class="ht__bradcaump__area" data--black__overlay="6"
-       style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
-    <div class="ht__bradcaump__wrap">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="bradcaump__inner text-center">
-              <h2 class="bradcaump-title">Post Details</h2>
-              <nav class="bradcaump-inner">
-                <a class="breadcrumb-item" routerLink="/">Home</a>
-                <span class="brd-separetor">-</span>
-                <span class="breadcrumb-item active">Post Details / {{postInfo.title}}</span>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Bradcaump area -->
+  <app-lower-header [headerTitle] = "'post details' | uppercase" ></app-lower-header>
   <!-- Start Blog Area -->
   <section class="htc__blog__details__page blog--details ptb--150 bg__white">
     <div class="container">
@@ -27,19 +7,21 @@
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
           <div class="htc__bl__dtl__inner">
             <div class="blog__inner">
-              <div class="blog__thumb">                
-                  <img [src]="postInfo.image" [alt]="postInfo.title">                
+              <div class="blog__thumb">
+                <h1 style="margin-bottom: 2rem">{{postInfo.title}}</h1>
+                <img [alt]="postInfo.title" [src]="postInfo.image" style="width: 50rem;height: 25rem;">
                 <div class="blog__hover__info">
                   <ul class="blog__meta">
                     <li>By : {{postInfo.client.name}}<a routerLink="#"></a></li>
-                    <li>20 July</li>
+                    <li>27 Feb</li>
                   </ul>
                 </div>
               </div>
-              <div class="htc__blog__details">                
+              <div class="htc__blog__details">
                 <div>
                   {{postInfo.description}}
                 </div>
+
                 <div>
                     <div><h2>Location</h2></div>
                     <agm-map [latitude]="lat" [longitude]="lng">
@@ -49,12 +31,15 @@
 
                 <div style="margin-top: 20px;" *ngIf="loged && postInfo.client._id!=clientid">
                   
+
+                <div *ngIf="loged && postInfo.client._id!=clientid" style="margin-top: 20px;">
+
                   <div *ngIf="ordered">
-                    <app-addtocart [_post_id]="postInfo._id"(click)="ordered=!ordered" ></app-addtocart>
+                    <app-addtocart (click)="ordered=!ordered" [_post_id]="postInfo._id"></app-addtocart>
 
                   </div>
                   <div *ngIf="!ordered">
-                    <app-cancelrequest [item_id]="postInfo._id" (click)="ordered=!ordered"></app-cancelrequest>
+                    <app-cancelrequest (click)="ordered=!ordered" [item_id]="postInfo._id"></app-cancelrequest>
 
                   </div>
 
@@ -67,16 +52,16 @@
                     <li><a routerLink="#"><i class="fa fa-tumblr"></i></a></li>
                     <li><a routerLink="#"><i class="fa fa-skype"></i></a></li>
                   </ul>
-                 
+
                 </div>
-              </div>          
+              </div>
             </div>
 
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   </section>
   <!-- End Blog Area -->
-  
+
 </div>

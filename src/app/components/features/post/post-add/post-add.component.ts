@@ -1,9 +1,8 @@
 import {ClientService} from 'src/app/_service/client.service';
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PostService} from 'src/app/_service/post.service';
 import {Router} from '@angular/router';
-import {Post} from 'src/app/_models/post';
 
 @Component({
   selector: 'app-post-add',
@@ -22,12 +21,18 @@ export class PostAddComponent implements OnInit {
   addPostForm: FormGroup;
   map = false;
 
-  showMap() {
-    return this.map = true;
+  constructor(private postServ: PostService,
+              private router: Router,
+              private clientSer: ClientService
+  ) {
   }
 
   get img() {
     return this.addPostForm.get('image');
+  }
+
+  showMap() {
+    return this.map = true;
   }
 
   uploadFile(event) {
@@ -56,13 +61,6 @@ export class PostAddComponent implements OnInit {
     this.locationChoosen = true;
   }
 
-  constructor(private postServ: PostService,
-              private router: Router,
-              private clientSer: ClientService
-  ) {
-  }
-
-
   getLocation() {  // current location by browser
     navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
@@ -85,8 +83,8 @@ export class PostAddComponent implements OnInit {
       description: new FormControl('', Validators.required),
       client: new FormControl(this.clientId, Validators.required),
       price: new FormControl(1000, Validators.required),
-      image: new FormControl('1.jpg', Validators.required),
-      location: new FormControl({lng: this.lng, lat: this.lat})
+      image: new FormControl(null, Validators.required),
+      location: new FormControl(null)
     });
 
   }

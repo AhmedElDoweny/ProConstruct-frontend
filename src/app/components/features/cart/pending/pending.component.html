@@ -4,32 +4,34 @@
 <div *ngIf="pendingproducts.length>0">
   <table class="table table-stribed hovered">
     <thead class="thead-light">
-      <tr>
-        <th>image</th>
-        <th>description</th>
-        <th>price</th>
-      </tr>
+    <tr>
+      <th>image</th>
+      <th>description</th>
+      <th>price</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of pendingproducts">
-        <td class="col-3" > <figure class="pull-left">
-          <img class="media-object img-rounded img-responsive" [src]="item.image" [alt]="item.title">
-        </figure></td>
-        <td class="col-4">
-          <div class="midcart">
-            <h2 class="list-group-item-heading">{{item.title}}</h2>
-            <p class="list-group-item-text"> {{item.description}}
-            </p>
-          </div>
-        </td>
-        <td>{{item.price|currency}}</td>
-        <td class="col-2">
-          <!-- <button class="btn btn-danger" (click)="cancelPost(item._id)">cancel</button> -->
-          <app-cancelrequest [item_id]="item._id" (click)="cancelpending(item._id)"></app-cancelrequest>
-        </td>
-      </tr>
+    <tr *ngFor="let item of pendingproducts">
+      <td class="col-3">
+        <figure class="pull-left">
+          <img [alt]="item.title" [src]="item.image" class="media-object img-rounded img-responsive">
+        </figure>
+      </td>
+      <td class="col-4">
+        <div class="midcart">
+          <h2 class="list-group-item-heading">{{item.title}}</h2>
+          <p class="list-group-item-text"> {{item.description}}
+          </p>
+        </div>
+      </td>
+      <td>{{item.price|currency}}</td>
+      <td class="col-2">
+        <!-- <button class="btn btn-danger" (click)="cancelPost(item._id)">cancel</button> -->
+        <app-cancelrequest (click)="cancelpending(item._id)" [item_id]="item._id"></app-cancelrequest>
+      </td>
+    </tr>
     </tbody>
-</table>
+  </table>
 
 
 </div>

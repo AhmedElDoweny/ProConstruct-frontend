@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ForgetPwComponent } from './forget-pw.component';
+import {ForgetPwComponent} from './forget-pw.component';
 
 describe('ForgetPwComponent', () => {
   let component: ForgetPwComponent;
@@ -8,9 +8,9 @@ describe('ForgetPwComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForgetPwComponent ]
+      declarations: [ForgetPwComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

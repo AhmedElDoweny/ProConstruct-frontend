@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as io from 'socket.io-client';
 import {ReplaySubject} from 'rxjs';
 
@@ -7,8 +7,8 @@ import {ReplaySubject} from 'rxjs';
 })
 export class SocketioService {
   notificationFlag: ReplaySubject<boolean>;
-  private endPoint = 'http://localhost:8080';
   socket;
+  private endPoint = 'http://localhost:8080';
 
   constructor() {
     this.notificationFlag = new ReplaySubject<boolean>(1);

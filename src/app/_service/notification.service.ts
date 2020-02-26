@@ -7,8 +7,12 @@ import {ReplaySubject} from 'rxjs';
   providedIn: 'root'
 })
 export class NotificationService {
-  private baseurl = 'http://localhost:8080/notification';
   notificationArr: ReplaySubject<Notification>;
+  private baseurl = 'http://localhost:8080/notification';
+
+  constructor(private http: HttpClient) {
+    this.notificationArr = new ReplaySubject<Notification>(1);
+  }
 
   getAllNottifications() {
     return this.http.get<Notification[]>(this.baseurl);
@@ -20,9 +24,5 @@ export class NotificationService {
 
   updateNotificationArr(notification: Notification) {
     this.notificationArr.next(notification);
-  }
-
-  constructor(private http: HttpClient) {
-    this.notificationArr = new ReplaySubject<Notification>(1);
   }
 }

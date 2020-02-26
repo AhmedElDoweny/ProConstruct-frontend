@@ -1,4 +1,4 @@
-import { ClientService } from 'src/app/_service/client.service';
+import {ClientService} from 'src/app/_service/client.service';
 import {Component, OnInit} from '@angular/core';
 import {CartServiceService} from 'src/app/_service/cart.service';
 import {ActivatedRoute} from '@angular/router';
@@ -14,6 +14,10 @@ export class CartComponent implements OnInit {
   completedFlag = false;
   rejectedFlag = false;
   pendingFlag = true;
+  newcart: Cart;
+
+  constructor(private cartservice: CartServiceService, private arote: ActivatedRoute, private clientservice: ClientService) {
+  }
 
   showrejected() {
     this.rejectedFlag = true;
@@ -32,12 +36,6 @@ export class CartComponent implements OnInit {
     this.pendingFlag = true;
     this.completedFlag = false;
   }
-  newcart: Cart;
-
-  constructor(private cartservice: CartServiceService, private arote: ActivatedRoute, private clientservice:ClientService) {
-  }
-
-
 
   ngOnInit() {
     let cart_id = this.clientservice.getUserPayload().cart;

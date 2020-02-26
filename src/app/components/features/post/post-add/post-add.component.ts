@@ -85,8 +85,8 @@ export class PostAddComponent implements OnInit {
       description: new FormControl('', Validators.required),
       client: new FormControl(this.clientId, Validators.required), 
       price: new FormControl(1000, Validators.required),
-      image: new FormControl('1.jpg', Validators.required),
-      location: new FormControl({lng: this.lng, lat: this.lat})
+      image: new FormControl(null, Validators.required),
+      location: new FormControl(null)
     });
 
   }

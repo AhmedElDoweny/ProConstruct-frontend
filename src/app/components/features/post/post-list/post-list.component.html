@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <app-lower-header [headerTitle]="'all posts' | uppercase"></app-lower-header>
+  <app-lower-header *ngIf="!home" [headerTitle]="'all posts' | uppercase"></app-lower-header>
+  <app-lower-header *ngIf="home" [headerTitle]="'home' | uppercase"></app-lower-header>
   <!-- Start Blog Area -->
   <section class="htc__blog__area ptb--150 bg__white">
     <div class="container">

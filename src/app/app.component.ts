@@ -34,10 +34,11 @@ export class AppComponent implements OnInit {
 
   }
 
-  sendNotification() {
-    this.notificationService.createNotification({title: 'test', content: 'test content', client: 4}).subscribe(notification => {
-      console.log('sent notification: ', notification);
-      this.socketioService.sendNotification({me: this.payload._id, someData: notification}, 4);
-    });
-  }
+  // sendNotification() {
+  //   const sendTo = 4;
+  //   this.notificationService.createNotification({title: 'test', content: 'test content', client: sendTo}).subscribe(notification => {
+  //     console.log('sent notification: ', notification);
+  //     this.socketioService.sendNotification({me: this.payload._id, someData: notification}, sendTo);
+  //   });
+  // }
 }

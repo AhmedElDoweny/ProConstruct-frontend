@@ -5,6 +5,8 @@ import {Post} from 'src/app/_models/post';
 import {Client} from 'src/app/_models/client';
 import {ClientService} from 'src/app/_service/client.service';
 import {CartServiceService} from 'src/app/_service/cart.service';
+import {NotificationService} from '../../../../_service/notification.service';
+import {SocketioService} from '../../../../_service/socketio.service';
 
 
 @Component({
@@ -13,16 +15,22 @@ import {CartServiceService} from 'src/app/_service/cart.service';
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit {
- ordered:boolean=true;
- loged=false;
- clientid;
- 
- lng = 30.00006;
- lat = 31.335663299999997;
-  constructor(private postServ: PostService, private aroute: ActivatedRoute,private cartservice:CartServiceService,private clientservice:ClientService) {
+  ordered = true;
+  loged = false;
+  clientid;
+
+  lng = 30.00006;
+  lat = 31.335663299999997;
+
+  constructor(private postServ: PostService,
+              private aroute: ActivatedRoute,
+              private cartservice: CartServiceService,
+              private clientservice: ClientService,
+              private notificationService: NotificationService,
+              private socketioService: SocketioService) {
   }
 
-  postInfo: Post = new Post(1, '', '', '', 1000, '',new Client());
+  postInfo: Post = new Post(1, '', '', '', 1000, '', new Client());
 
   ngOnInit() {
     this.aroute.params.subscribe(a => {
@@ -31,11 +39,21 @@ export class PostDetailsComponent implements OnInit {
         this.lng = s.location.lng;
         this.lat = s.location.lat;
       });
-
     });
     this.loged = this.clientservice.isLoggedIn();
     this.clientid = this.clientservice.getUserPayload()._id;
+  }
 
+  onOrder(postClient: number) {
+    this.ordered = !this.ordered;
+    this.sendNotification(postClient);
+  }
+
+  sendNotification(sendTo: number) {
+    this.notificationService.createNotification({title: `New order`, content: `${this.postInfo.title} has been ordered`, client: sendTo}).subscribe(notification => {
+      console.log('sent notification: ', notification);
+      this.socketioService.sendNotification({me: this.clientid, someData: notification}, sendTo);
+    });
   }
 
 }

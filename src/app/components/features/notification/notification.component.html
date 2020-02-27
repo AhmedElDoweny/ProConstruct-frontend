@@ -8,17 +8,16 @@
       <li class="dropdown ">
         <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle nohover" data-toggle="dropdown"
            role="button">
-          <div class="ht__address__icon glob">
+          <div class="ht__address__icon glob" (click)="onSeeNotification()">
             <i aria-hidden="true" class="fa fa-bell"></i>
-            <i class="fa fa-circle redCircle"></i>
+            <i *ngIf="notificationFlag" class="fa fa-circle redCircle"></i>
             <!--            <span class='badgeAlert' *ngIf="notifications.length>0">{{notifications.length}}</span>-->
             <!--            <span *ngIf="notifications.length==0"></span>-->
           </div>
-
         </a>
-        <ul *ngIf="notifications.length>0" class="list-notificacao dropdown-menu">
+        <ul *ngIf="notifications && notifications.length>0" class="list-notificacao dropdown-menu">
           <h3 class="title">Notifications</h3>
-          <li *ngFor="let item of notifications" [ngClass]="{'isread': item.isread}" class="dropdown-item"
+          <li *ngFor="let item of notifications | reverseArr" [ngClass]="{'isread': item.isread}" class="dropdown-item"
               id='item_notification_1'>
             <div class="media">
               <div class="media-left">
@@ -31,7 +30,7 @@
           </li>
           <!-- <a href="#">see all</a>     -->
         </ul>
-        <ul *ngIf="notifications.length==0" class="list-notificacao dropdown-menu">
+        <ul *ngIf="notifications && notifications.length==0" class="list-notificacao dropdown-menu">
           <div class="jumbotron">
             <h2>there is No Notification</h2>
           </div>

@@ -1,6 +1,7 @@
 import {NotificationService} from './../../../_service/notification.service';
 import {Component, OnInit} from '@angular/core';
 import {Notification} from 'src/app/_models/notification';
+import {ClientService} from '../../../_service/client.service';
 
 @Component({
   selector: 'app-notification',
@@ -9,37 +10,43 @@ import {Notification} from 'src/app/_models/notification';
 })
 export class NotificationComponent implements OnInit {
   notifications: Notification[];
-  seen = false;
+  notificationFlag: boolean;
 
-  // notifications=[
-  //   {title:"Your request to rent equipment1 has been approved",
-  //   content:"Your request to rent equipment1 has been approved,now you can keep in touch with the owner",
-  //   isseen:false,
-  //   isread:true},
-  //   {title:"Your request to rent equipment2 has been rejected",
-  //   content:"Your request to rent equipment2 has been rejected,unfortunately this equipment not available",
-  //   isseen:false,
-  //   isread:false},
-  //   {title:"Your request to rent equipment3 has been approved",
-  //   content:"Your request to rent equipment3 has been approved,now you can keep in touch with the owner",
-  //   isseen:false,
-  //   isread:false},
-  // ]
-  constructor(private notifservice: NotificationService) {
+  constructor(private notifservice: NotificationService, private clientService: ClientService) {
   }
 
   ngOnInit() {
-    this.notifservice.getAllNottifications().subscribe(notif => {
+    this.notifservice.getAllNottifications(this.clientService.getUserPayload()._id).subscribe(notif => {
       console.log(notif);
       this.notifications = notif;
+      this.notificationFlag = this.checkUnseenNotification();
+      console.log(this.notificationFlag);
     });
 
-    this.notifservice.notificationArr.subscribe((notification: Notification) => {
+    this.notifservice.notificationArr.subscribe((notification) => {
       console.log('notifications before update: ', this.notifications);
       console.log('received notification: ', notification, typeof (notification));
       this.notifications.push(notification);
+      this.notificationFlag = this.checkUnseenNotification();
       console.log('notifications after update: ', this.notifications, 'recived notification ', notification);
     });
   }
 
+  checkUnseenNotification() {
+    if (this.notifications === undefined) {
+      return false;
+    }
+    for (const notification of this.notifications) {
+      if (notification.isseen === false) {
+        return true;
+      }
+    }
+  }
+
+  onSeeNotification() {
+    for (const notification of this.notifications) {
+      notification.isseen = true;
+      this.notificationFlag = this.checkUnseenNotification();
+    }
+  }
 }

@@ -47,7 +47,7 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { ListUsersComponent } from './components/dashboard/list-users/list-users.component';
 import { PostsComponent } from './components/dashboard/posts/posts.component';
 import { SettingComponent } from './components/dashboard/setting/setting.component';
-
+import { ReverseArrPipe } from './_pipes/reverse-arr.pipe';
 
 @NgModule({
   declarations: [
@@ -86,6 +86,7 @@ import { SettingComponent } from './components/dashboard/setting/setting.compone
     ListUsersComponent,
     PostsComponent,
     SettingComponent,
+    ReverseArrPipe
   ],
   imports: [
     BrowserModule,

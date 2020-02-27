@@ -14,8 +14,8 @@ export class NotificationService {
     this.notificationArr = new ReplaySubject<Notification>(1);
   }
 
-  getAllNottifications() {
-    return this.http.get<Notification[]>(this.baseurl);
+  getAllNottifications(clientId) {
+    return this.http.get<Notification[]>(`${this.baseurl}/${clientId}`);
   }
 
   createNotification(notBody: { title: string, content: string, client: number }) {

@@ -11,7 +11,7 @@ import {Client} from 'src/app/_models/client';
 })
 export class ProfileComponent implements OnInit {
   client = new Client(1, '', '', '', '', '', '');
-
+  admin = false
   constructor(private clientSer: ClientService, private router: Router) {
   }
 
@@ -21,11 +21,18 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clientSer.getClient().subscribe(data => {
+    let role = this.clientSer.getUserPayload().role
+    if(role === "superAdmin"){
+      this.clientSer.getAdmin().subscribe(data => this.client = data)
+      this.admin = true
+    }
+    else{
+      this.clientSer.getClient().subscribe(data => {
         this.client = data;
-
       },
       error => console.log(error.error.message));
+    }
+    
 
   }
 

@@ -40,14 +40,18 @@ export class LoginComponent implements OnInit {
     }
     this.clientSer.login(this.login.value).subscribe(
       data => {
+        
         this.clientSer.setToken(data['token']);
         this.clientSer.changeFlag(true);
-        console.log('payload', this.clientSer.getUserPayload().role);
         if (this.clientSer.getUserPayload().role === 'sProvider') {
           this.clientSer.changeRole(true);
         }
+        else if(this.clientSer.getUserPayload().role === 'superAdmin'){
+          this.clientSer.isAdmin(true)
+        }
         this.socketioService.setupSocketConnection(this.clientSer.getUserPayload()._id);
-        this.router.navigateByUrl('/profile');
+        //this.router.navigateByUrl('');
+        window.location.href = "http://localhost:4200/"
       },
       err => {
         this.ngFlashMessageService.showFlashMessage({

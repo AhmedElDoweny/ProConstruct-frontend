@@ -12,6 +12,7 @@ export class MiddleHeaderComponent implements OnInit {
 
   isLogged: boolean;
   role: boolean;
+  isAdmin: boolean;
   r: string;
 
   constructor(private clientSer: ClientService) {
@@ -20,6 +21,12 @@ export class MiddleHeaderComponent implements OnInit {
     // } else {
     //   this.role = false;
     // }
+    //this.isLogged = this.clientSer.isLoggedIn();
+    this.clientSer.changeF.subscribe(status => {
+      this.isLogged = status;
+    });
+    
+    
   }
 
   ngOnInit() {
@@ -38,17 +45,22 @@ export class MiddleHeaderComponent implements OnInit {
 
     this.r = this.clientSer.getUserPayload().role;
     this.isLogged = this.clientSer.isLoggedIn();
-    this.clientSer.changeR.subscribe(state => {
-      this.role = state;
-      console.log('role-> ', state);
-    });
-    this.role = this.clientSer.getUserPayload().role === 'sProvider' ? true : false;
-    console.log('role ---> ', this.role);
     this.clientSer.changeF.subscribe(status => {
       this.isLogged = status;
     });
+    this.clientSer.changeR.subscribe(state => {
+      this.role = state;
+      //console.log('role-> ', state);
+    });
+    this.clientSer.admin.subscribe(state => {
+      this.isAdmin = state
+    })
+    this.role = this.clientSer.getUserPayload().role === 'sProvider' ? true : false;
+    this.isAdmin = this.clientSer.getUserPayload().role === 'superAdmin' ? true : false;
+    //console.log('role ---> ', this.role);
+    
 
-
+    
   }
 
   changeMobileUl() {

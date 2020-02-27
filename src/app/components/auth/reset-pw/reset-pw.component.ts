@@ -31,7 +31,7 @@ export class ResetPwComponent implements OnInit {
       return;
     }
     this.clientSer.resetPw(this.resetPw.value, this.router.url.split('/')[2]).subscribe(
-      () => this.router.navigateByUrl('/login'),
+      (data) => this.router.navigateByUrl('/login', {replaceUrl:true}),
       (err) => console.log(err)
     );
 

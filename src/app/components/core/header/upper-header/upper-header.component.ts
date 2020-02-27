@@ -32,6 +32,7 @@ export class UpperHeaderComponent implements OnInit {
     this.clientSer.removeToken();
     this.toggle();
     this.clientSer.changeRole(false);
+    this.clientSer.isAdmin(false);
     this.router.navigateByUrl('');
   }
 

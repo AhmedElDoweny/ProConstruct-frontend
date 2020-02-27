@@ -30,19 +30,31 @@ export class ForgetPwComponent implements OnInit {
       });
       return;
     }
-    console.log(this.forgetPw.value);
+    // console.log(this.forgetPw.value);
     this.clientSer.forgetPw(this.forgetPw.value).subscribe(data => {
-      console.log(data);
-
-    });
-    this.disable = true;
+      this.disable = true;
     this.ngFlashMessageService.showFlashMessage({
       messages: ['Please check your email to reset password'],
       type: 'success'
     });
     setTimeout(() => {
       this.disable = false;
-    }, 50000);
+    }, 50000);;
+
+    }, err => {
+      this.ngFlashMessageService.showFlashMessage({
+        messages: ['Wrong Email'],
+        type: 'danger'
+      });
+    });
+    // this.disable = true;
+    // this.ngFlashMessageService.showFlashMessage({
+    //   messages: ['Please check your email to reset password'],
+    //   type: 'success'
+    // });
+    // setTimeout(() => {
+    //   this.disable = false;
+    // }, 50000);
   }
 
   ngOnInit() {

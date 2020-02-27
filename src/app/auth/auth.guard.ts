@@ -17,7 +17,23 @@ export class AuthGuard implements CanActivate {
       this.clientSer.removeToken();
       return false;
     }
+    
     return true;
+  //   if(this.clientSer.isLoggedIn()){
+  //     if(this.clientSer.getUserPayload().role === "superAdmin"){
+  //       return true
+  //     }
+  //     else if(this.clientSer.getUserPayload().role === "Engineer" || this.clientSer.getUserPayload().role === "sProvider"){
+  //       return true
+  //     }
+  //   }
+  // else{
+  //     this.router.navigateByUrl('/login');
+  //     this.clientSer.removeToken();
+  //     return false;
+  // }
+    
+    
   }
 
 

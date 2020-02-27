@@ -9,13 +9,16 @@ import {Client} from '../_models/client';
 export class ClientService {
   changeF: ReplaySubject<boolean>;
   changeR: ReplaySubject<boolean>;
+  admin: ReplaySubject<boolean>;
   noAuthHeader = {headers: new HttpHeaders({'NoAuth': 'True'})};
   private Url = 'http://localhost:8080/client';
+  private Urls = 'http://localhost:8080/clients';
   private authUrl = 'http://localhost:8080/login';
 
   constructor(private http: HttpClient) {
     this.changeF = new ReplaySubject<boolean>(1);
     this.changeR = new ReplaySubject<boolean>(1);
+    this.admin = new ReplaySubject<boolean>(1);
   }
 
   forgetPw(email) {
@@ -41,21 +44,37 @@ export class ClientService {
   }
 
   changeRole(role: boolean) {
-
     this.changeR.next(role);
+    //this.changeR.complete()
+  }
+
+  isAdmin(a:boolean){
+    this.admin.next(a)
+    //this.admin.complete()
+  }
+  getAdmin(){
+    return this.http.get<any>('http://localhost:8080/admin');
   }
 
   getClient() {
     return this.http.get<Client>(this.Url);
   }
 
+  getAllClient(){
+    return this.http.get(this.Urls)
+  }
+
   editClient(client) {
     return this.http.patch(this.Url, {edit: client});
+  }
+  deleteClient(id){
+    return this.http.delete<Client>(this.Url +"/"+ id)
   }
 
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
+
 
   getToken() {
     return localStorage.getItem('token');

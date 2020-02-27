@@ -43,6 +43,11 @@ import {CancelrequestComponent} from './components/features/cart/cancelrequest/c
 import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
 import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
 import {MypostsComponent} from './components/features/post/myposts/myposts.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { ListUsersComponent } from './components/dashboard/list-users/list-users.component';
+import { PostsComponent } from './components/dashboard/posts/posts.component';
+import { SettingComponent } from './components/dashboard/setting/setting.component';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +81,11 @@ import {MypostsComponent} from './components/features/post/myposts/myposts.compo
     CancelrequestComponent,
     ForgetPwComponent,
     ResetPwComponent,
-    MypostsComponent
+    MypostsComponent,
+    DashboardComponent,
+    ListUsersComponent,
+    PostsComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,

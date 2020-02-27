@@ -47,6 +47,9 @@ export class PostService {
     formData.append('location', post.location);
     return this.http.post(this.baseUrl, formData);
   }
+  deletePost(id){
+    return this.http.delete(this.baseUrl +"/"+ id)
+  }
 
 
 }

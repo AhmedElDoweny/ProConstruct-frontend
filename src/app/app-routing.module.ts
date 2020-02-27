@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './components/core/home/home.component';
 import {ErrorComponent} from './components/core/error/error.component';
@@ -17,6 +17,10 @@ import {EditProfileComponent} from './components/edit-profile/edit-profile.compo
 import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
 import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
 import {MypostsComponent} from './components/features/post/myposts/myposts.component';
+import {DashboardComponent} from './components/dashboard/dashboard/dashboard.component';
+import {ListUsersComponent} from './components/dashboard/list-users/list-users.component';
+import {PostsComponent} from './components/dashboard/posts/posts.component';
+import {SettingComponent} from './components/dashboard/setting/setting.component'
 
 const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
@@ -33,6 +37,11 @@ const routes: Routes = [
   {path: 'profile/edit', component: EditProfileComponent},
   {path: 'forget', component: ForgetPwComponent},
   {path: 'reset/:token', component: ResetPwComponent},
+  {path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard], children:[
+    {path: 'listUsers', component:ListUsersComponent},
+    {path: 'posts', component:PostsComponent},
+    {path: 'setting', component:SettingComponent}
+  ]},
   // Put ur routes above |⬆|
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},

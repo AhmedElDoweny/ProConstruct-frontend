@@ -43,15 +43,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSave() {
-    console.log(this.register.value);
     this.clientSer.addClient(this.register.value).subscribe(
       data => {
         this.clientSer.setToken(data['token']);
-        this.router.navigateByUrl('/profile');
+        //this.router.navigateByUrl('/profile');
+        
         this.clientSer.changeFlag(true);
         if (this.clientSer.getUserPayload().role === 'sProvider') {
           this.clientSer.changeRole(true);
         }
+        window.location.href = "http://localhost:4200/"
       },
       err => {
         if (err.error.length === 1) {

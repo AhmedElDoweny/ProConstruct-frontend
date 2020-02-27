@@ -14,7 +14,7 @@
           <ul class="main__menu">
             <li class="drop"><a routerLink="/home">{{'home' | uppercase}}</a></li>
             <li *ngIf="isLogged"><a routerLink="/profile">{{'profile' | uppercase}}</a></li>
-            <li *ngIf="isLogged"><a routerLink="/cart">{{'orders' | uppercase}}</a></li>
+            <li *ngIf="isLogged && !isAdmin"><a routerLink="/cart">{{'orders' | uppercase}}</a></li>
             <li *ngIf="role && isLogged" class="drop"><a>{{'posts' | uppercase}}</a>
               <ul class="dropdown">
                 <li><a routerLink="/add-post">{{'add post' | uppercase}}</a></li>
@@ -25,7 +25,7 @@
             <li *ngIf="!role || !isLogged"><a routerLink="/posts">{{'posts' | uppercase}}</a></li>
             <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
             <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
-
+            <li *ngIf="isAdmin && isLogged"><a routerLink="/dashboard">{{'dashboard' | uppercase}}</a></li>
 
             <!--            <li class="drop"><a routerLink="#">pages</a>-->
             <!--              <ul class="dropdown">-->
@@ -65,6 +65,7 @@
             <li *ngIf="!role || !isLogged"><a routerLink="/posts">{{'posts' | uppercase}}</a></li>
             <li><a routerLink="/about-us">{{'about us' | uppercase}}</a></li>
             <li><a routerLink="/contact-us">{{'contact us' | uppercase}}</a></li>
+            
           </ul>
         </nav>
       </div>

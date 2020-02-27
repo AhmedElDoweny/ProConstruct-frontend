@@ -1,0 +1,22 @@
+<table class="table table-bordered table-dark table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>content</th>
+            <th>Info</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+
+            <td>{{post.title}}</td>
+            <td>{{post.client.name}}</td>
+            <td>{{post.description | slice:0:20}}</td>
+            <td><a class="btn btn-warning" routerLink="/posts/{{post._id}}">Info<i class="zmdi zmdi-long-arrow-right"></i></a></td>
+            <td><a class="btn btn-danger" (click)="onDelete(post._id)">Delete</a></td>
+        </tr>
+    </tbody>
+
+</table>

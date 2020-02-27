@@ -15,7 +15,7 @@
           <div class="form-control">{{client.phone}}</div>
         </div>
       </div>
-      <hr>
+      <!-- <hr>
       <div class="row text-center">
         <div class="col-6">
           <h6>location</h6>
@@ -26,8 +26,9 @@
           <div class="form-control">01011456677</div>
         </div>
       </div>
+      <hr> -->
       <hr>
-      <div class="row">
+      <div *ngIf="!admin" class="row">
         <div class="col-4 offset-4">
           <button class="butt" routerLink="/profile/edit">EDIT</button>
         </div>

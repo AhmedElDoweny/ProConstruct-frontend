@@ -30,12 +30,12 @@
                 </div>
 
                 <div style="margin-top: 20px;" *ngIf="loged && postInfo.client._id!=clientid">
-                  
+
 
                 <div *ngIf="loged && postInfo.client._id!=clientid" style="margin-top: 20px;">
 
                   <div *ngIf="ordered">
-                    <app-addtocart (click)="ordered=!ordered" [_post_id]="postInfo._id"></app-addtocart>
+                    <app-addtocart (click)="onOrder(postInfo.client._id)" [_post_id]="postInfo._id"></app-addtocart>
 
                   </div>
                   <div *ngIf="!ordered">

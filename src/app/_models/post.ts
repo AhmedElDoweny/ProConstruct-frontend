@@ -9,7 +9,7 @@ export class Post {
     public price: number,
     public image: string,
     public client: Client,
-    public location?: {lng:number, lat:number}
+    public location?: { lng: number, lat: number }
   ) {
   }
 }

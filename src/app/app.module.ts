@@ -43,6 +43,7 @@ import {CancelrequestComponent} from './components/features/cart/cancelrequest/c
 import {ForgetPwComponent} from './components/auth/forget-pw/forget-pw.component';
 import {ResetPwComponent} from './components/auth/reset-pw/reset-pw.component';
 import {MypostsComponent} from './components/features/post/myposts/myposts.component';
+import { ReverseArrPipe } from './_pipes/reverse-arr.pipe';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {MypostsComponent} from './components/features/post/myposts/myposts.compo
     CancelrequestComponent,
     ForgetPwComponent,
     ResetPwComponent,
-    MypostsComponent
+    MypostsComponent,
+    ReverseArrPipe
   ],
   imports: [
     BrowserModule,

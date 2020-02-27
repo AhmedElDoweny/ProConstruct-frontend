@@ -1,15 +1,23 @@
 <div class="container">
-    <div class="row">
-        <div class="col-2" style="border: 1px solid black;">
-            <div><button routerLink="/dashboard/listUsers" class="btn btn-warning btn-md btn-block">Users</button></div>
-            <hr>
-            <div><button routerLink="/dashboard/posts" class="btn btn-warning btn-md btn-block">Services</button></div>
-            <hr>
-            <div><button routerLink="/dashboard/setting" class="btn btn-warning btn-md btn-block">Setting</button></div>
-        </div>
-        <div class="col-10">
-            <router-outlet></router-outlet>
-        </div>
+  <div class="row">
+    <div class="col-2">
+      <div>
+        <button routerLink="/dashboard/listUsers" class="btn btn-warning btn-md btn-block" style="color: white">Users</button>
+      </div>
+      <hr>
+      <div>
+        <button routerLink="/dashboard/posts" class="btn btn-warning btn-md btn-block"  style="color: white">Posts</button>
+      </div>
+      <hr>
+      <div>
+        <button routerLink="/dashboard/setting" class="btn btn-warning btn-md btn-block"  style="color: white">Setting</button>
+      </div>
     </div>
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </div>
 
 </div>

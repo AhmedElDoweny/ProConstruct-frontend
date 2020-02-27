@@ -18,6 +18,7 @@ export class MypostsComponent implements OnInit {
     this.clientservice.getClient().subscribe(c => {
       console.log(c);
       this.posts = c.post;
+      console.log(c);
     });
   }
 

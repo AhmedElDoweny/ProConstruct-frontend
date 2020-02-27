@@ -1,1 +1,35 @@
-<p>setting works!</p>
+<div>
+  <table class="table table-bordered table-dark table-hover w-25">
+    <thead>
+    <tr>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let email of newsLetterEmails">
+      <td>{{email}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <hr>
+  <table class="table table-bordered table-dark table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contactUsMessages">
+      <td>{{contact.id}}</td>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.subject}}</td>
+      <td>{{contact.message}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

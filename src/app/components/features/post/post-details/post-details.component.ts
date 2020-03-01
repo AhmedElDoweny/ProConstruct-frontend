@@ -50,7 +50,12 @@ export class PostDetailsComponent implements OnInit {
   }
 
   sendNotification(sendTo: number) {
-    this.notificationService.createNotification({title: `New order`, content: `${this.postInfo.title} has been ordered`, client: sendTo}).subscribe(notification => {
+    this.notificationService.createNotification({
+      title: `New order`,
+      content: `${this.postInfo.title} has been ordered`,
+      client: sendTo,
+      from: this.clientid
+    }).subscribe(notification => {
       console.log('sent notification: ', notification);
       this.socketioService.sendNotification({me: this.clientid, someData: notification}, sendTo);
     });

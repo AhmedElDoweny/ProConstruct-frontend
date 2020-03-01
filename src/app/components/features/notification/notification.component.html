@@ -24,7 +24,13 @@
               </div>
               <div class="media-body">
                 <h3 class="media-heading"> {{item.title}}</h3>
-                <p>{{item.content}}</p>
+                <span>{{item.content}}</span>
+                <span *ngIf="role === 'sProvider'">
+                  <button class="btn btn-success" style="margin: 0 .25rem;"
+                          (click)="orderResponse('accepted ✔', item.title, item.from, item.client)">Accept</button>
+                  <button class="btn btn-danger"
+                          (click)="orderResponse('rejected ✖', item.title, item.from, item.client)">Reject</button>
+                </span>
               </div>
             </div>
           </li>

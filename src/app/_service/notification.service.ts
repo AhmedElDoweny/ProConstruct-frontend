@@ -18,7 +18,7 @@ export class NotificationService {
     return this.http.get<Notification[]>(`${this.baseurl}/${clientId}`);
   }
 
-  createNotification(notBody: { title: string, content: string, client: number }) {
+  createNotification(notBody: { title: string, content: string, client: number, from: number }) {
     return this.http.post<Notification>(this.baseurl, notBody);
   }
 

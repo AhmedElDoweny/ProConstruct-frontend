@@ -1,6 +1,6 @@
-import { ClientService } from './../../../_service/client.service';
-import { Router } from '@angular/router';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {ClientService} from './../../../_service/client.service';
+import {Router} from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,14 +11,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private clientSer:ClientService ,
-    private router:Router) { }
+    private clientSer: ClientService,
+    private router: Router) {
+  }
 
   ngOnInit() {
-    if(this.clientSer.getUserPayload().role !== "superAdmin"){
-      this.router.navigateByUrl('')
+    if (this.clientSer.getUserPayload().role !== 'superAdmin') {
+      this.router.navigateByUrl('');
     }
-    
+
   }
 
 }

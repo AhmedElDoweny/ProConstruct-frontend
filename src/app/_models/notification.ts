@@ -4,6 +4,7 @@ export class Notification {
     public title: string,
     public content: string,
     public client: number,
+    public from: number,
     public isseen: boolean,
     public isread: boolean,
   ) {

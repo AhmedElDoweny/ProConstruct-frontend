@@ -12,7 +12,7 @@
       <div class="row">
         <div class="htc__blog__wrap clearfix">
           <!-- Start Single Blog -->
-          <div *ngFor="let post of posts | filter:searchItem | paginate:{itemsPerPage:6,currentPage:p}"
+          <div *ngFor="let post of posts | reverseArr | filter:searchItem | paginate :{itemsPerPage:6,currentPage:p}"
                class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
             <div class="blog foo">
               <div class="blog__thumb">
@@ -21,7 +21,7 @@
                 </a>
                 <div class="blog__hover__info">
                   <ul class="blog__meta">
-                    <li>By : {{post.client.name}}</li>
+                    <li>By : {{post.client?.name}}</li>
                     <li>27 Feb</li>
                   </ul>
                 </div>

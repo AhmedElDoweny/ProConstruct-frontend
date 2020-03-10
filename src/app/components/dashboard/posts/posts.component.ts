@@ -1,5 +1,5 @@
-import { PostService } from './../../../_service/post.service';
-import { Component, OnInit } from '@angular/core';
+import {PostService} from './../../../_service/post.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-posts',
@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  posts
-  constructor(private postSer: PostService) { }
-  onDelete(id){
+  posts;
+
+  constructor(private postSer: PostService) {
+  }
+
+  onDelete(id) {
     this.postSer.deletePost(id).subscribe(
-      data => {console.log(data)
+      data => {
+        console.log(data);
         this.postSer.getAllPosts().subscribe(
           data => this.posts = data);
       }
-    )
+    );
   }
+
   ngOnInit() {
     this.postSer.getAllPosts().subscribe(
       data => this.posts = data);

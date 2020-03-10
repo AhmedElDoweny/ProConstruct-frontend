@@ -39,8 +39,8 @@
             <textarea formControlName="description" name="description" placeholder="Description"></textarea>
           </div>
           <div class="row">
-            <div (click)="getLocation()" class="col-3 btn btn-primary">Get Current Location</div>
-            <div (click)="showMap()" class="col-3 btn btn-primary ml-2">Choose Custom Location</div>
+            <div (click)="getLocation()" class="col-3 btn btn-warning" style="margin: 0 1.5rem .5rem">Pick Current Location</div>
+            <div (click)="showMap()" class="col-3 btn btn-warning ml-2" style="margin-bottom: .5rem; padding: .4rem 1rem">Pick Custom Location</div>
           </div>
           <div *ngIf="map">
             <agm-map (mapClick)="selectLocation($event)" [latitude]="lat" [longitude]="lng">
